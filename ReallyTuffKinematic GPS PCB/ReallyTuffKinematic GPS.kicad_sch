@@ -3059,6 +3059,468 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mouser:PNT-SG3FS-TR"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "IC"
+				(at 36.83 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "PNT-SG3FS-TR"
+				(at 36.83 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "PNTSG3FSTR"
+				(at 36.83 -94.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Datasheet" ""
+				(at 36.83 -194.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Description" "GNSS / GPS Modules GNSS Module - Low power Teseo III flash-based Multi-constellation Receiver Module (1000pc T&R)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Height" "2.33"
+				(at 36.83 -394.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Mouser Part Number" ""
+				(at 36.83 -494.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Mouser Price/Stock" ""
+				(at 36.83 -594.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Name" "Lantronix"
+				(at 36.83 -694.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Part_Number" "PNT-SG3FS-TR"
+				(at 36.83 -794.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(symbol "PNT-SG3FS-TR_1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 35.56 -22.86)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 40.64 -20.32 180)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 40.64 -17.78 180)
+					(length 5.08)
+					(name "UART-TX"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 40.64 -15.24 180)
+					(length 5.08)
+					(name "UART-RX"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 40.64 -12.7 180)
+					(length 5.08)
+					(name "PPS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 40.64 -10.16 180)
+					(length 5.08)
+					(name "WAKEUP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 40.64 -7.62 180)
+					(length 5.08)
+					(name "VBAT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 40.64 -5.08 180)
+					(length 5.08)
+					(name "VCC_IO"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 40.64 -2.54 180)
+					(length 5.08)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 40.64 0 180)
+					(length 5.08)
+					(name "NRESET"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "GND_RF_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "RF_IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 0)
+					(length 5.08)
+					(name "GND_RF_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 0)
+					(length 5.08)
+					(name "ANTOFF"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -10.16 0)
+					(length 5.08)
+					(name "VCC_RF"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -12.7 0)
+					(length 5.08)
+					(name "RESERVED_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -15.24 0)
+					(length 5.08)
+					(name "I2C_SDA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -17.78 0)
+					(length 5.08)
+					(name "I2C_SCL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "17"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -20.32 0)
+					(length 5.08)
+					(name "RESERVED_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "18"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Regulator_Linear:AP2112K-3.3"
 			(pin_names
 				(offset 0.254)
@@ -6746,7 +7208,7 @@
 		(uuid "711175aa-0f9e-464b-8bcb-d0c91da5af03")
 	)
 	(rectangle
-		(start 223.3435 127.2613)
+		(start 223.5199 127.2613)
 		(end 291.8901 155.2013)
 		(stroke
 			(width 0.254)
@@ -6780,6 +7242,18 @@
 			(type none)
 		)
 		(uuid "adf0f826-e184-48a4-9ae8-1463a999934e")
+	)
+	(rectangle
+		(start 99.06 200.66)
+		(end 223.52 248.591)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "b382c5e0-db1b-4bc1-aa63-5144889cbead")
 	)
 	(rectangle
 		(start 223.52 99.06)
@@ -6841,6 +7315,16 @@
 		)
 		(uuid "f054bebf-c81a-42fd-9192-65b0ff3339f6")
 	)
+	(text "GNSS"
+		(exclude_from_sim no)
+		(at 207.264 71.374 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0abad3e4-6e8c-42cf-ba84-283418895ed5")
+	)
 	(text "FLASH RAM"
 		(exclude_from_sim no)
 		(at 87.376 61.214 0)
@@ -6860,6 +7344,16 @@
 			)
 		)
 		(uuid "17cf5d66-a14a-4d34-b4cc-742e1bcde9bc")
+	)
+	(text "GNSS"
+		(exclude_from_sim no)
+		(at 217.678 246.38 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+		)
+		(uuid "1be7b910-25c2-438d-874b-426a20fc4160")
 	)
 	(text "RP2350 CRYSTAL"
 		(exclude_from_sim no)
@@ -6893,7 +7387,7 @@
 	)
 	(text "BUZZ"
 		(exclude_from_sim no)
-		(at 229.362 124.968 0)
+		(at 242.57 124.968 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -6911,6 +7405,16 @@
 		)
 		(uuid "4d72a594-ff4e-472c-9b49-bbeee5950d1b")
 	)
+	(text "GNSS"
+		(exclude_from_sim no)
+		(at 207.264 76.454 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "54cee08a-7a3a-420e-8152-cee4a4fbba6d")
+	)
 	(text "BUZZ"
 		(exclude_from_sim no)
 		(at 208.28 112.014 0)
@@ -6923,13 +7427,33 @@
 	)
 	(text "ESP32 DEBUG"
 		(exclude_from_sim no)
-		(at 263.144 124.968 0)
+		(at 285.496 124.968 0)
 		(effects
 			(font
 				(size 2.54 2.54)
 			)
 		)
 		(uuid "6d2ba5e3-8a00-40cd-93a1-1def0b23634e")
+	)
+	(text "TX"
+		(exclude_from_sim no)
+		(at 211.582 68.834 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "744c9732-39ee-4e49-a352-a7371fb16d5c")
+	)
+	(text "RX"
+		(exclude_from_sim no)
+		(at 211.582 66.294 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8221e4b9-5ddb-45d6-9ad0-983418537bec")
 	)
 	(text "Charger"
 		(exclude_from_sim no)
@@ -6941,9 +7465,19 @@
 		)
 		(uuid "8ac26810-e1ea-484f-961b-e0f0dd317312")
 	)
+	(text "RX"
+		(exclude_from_sim no)
+		(at 212.598 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8fbb41d5-4d97-4afe-8bbe-23e2ef8a1e97")
+	)
 	(text "RP2350"
 		(exclude_from_sim no)
-		(at 107.95 150.114 0)
+		(at 215.138 150.368 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -6963,7 +7497,7 @@
 	)
 	(text "ESP32"
 		(exclude_from_sim no)
-		(at 230.378 96.774 0)
+		(at 292.862 96.774 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -6991,6 +7525,16 @@
 		)
 		(uuid "ac65e475-73db-489d-a74b-95617f30fa54")
 	)
+	(text "GNSS"
+		(exclude_from_sim no)
+		(at 207.264 78.994 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "bb71b5ae-1953-4e5b-a20d-663adf26662e")
+	)
 	(text "USB-C Connector"
 		(exclude_from_sim no)
 		(at 81.026 187.706 0)
@@ -7000,6 +7544,36 @@
 			)
 		)
 		(uuid "cd41869b-8707-4c0e-b300-663cb711123b")
+	)
+	(text "GNSS"
+		(exclude_from_sim no)
+		(at 207.264 68.834 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "d3b6f47d-4684-4925-8601-532bdd985b44")
+	)
+	(text "GNSS"
+		(exclude_from_sim no)
+		(at 207.264 73.914 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "daee117e-92d6-4785-87f4-2686cf457efd")
+	)
+	(text "TX"
+		(exclude_from_sim no)
+		(at 212.598 58.42 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "db617af1-a761-4013-ab89-de3a52a8a429")
 	)
 	(text "RP2350 DEBUG"
 		(exclude_from_sim no)
@@ -7020,6 +7594,16 @@
 			)
 		)
 		(uuid "e914665b-08f8-4f63-852e-1cb77f0abe9b")
+	)
+	(text "GNSS"
+		(exclude_from_sim no)
+		(at 207.264 66.294 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e91e0734-f747-4c53-a2e8-5840db017836")
 	)
 	(text "ESP32"
 		(exclude_from_sim no)
@@ -7330,6 +7914,12 @@
 		(uuid "b7a98770-ff7f-4bb5-952f-a0cff8d27134")
 	)
 	(junction
+		(at 120.65 214.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bbbd9f44-d6e5-40a6-87d7-59f5bfafb2f0")
+	)
+	(junction
 		(at 238.76 71.12)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7454,6 +8044,10 @@
 		(uuid "80c1f2a9-e8ff-4ba3-83ae-b4639ca0b9ca")
 	)
 	(no_connect
+		(at 127 234.95)
+		(uuid "846ba59d-47f9-4ec0-90e5-3460e2986d87")
+	)
+	(no_connect
 		(at 261.62 50.8)
 		(uuid "8c90fc85-699b-4b05-a031-ef8d524c7287")
 	)
@@ -7505,6 +8099,10 @@
 		(at 129.54 71.12)
 		(uuid "f6b39ba8-f4c3-46c7-a55b-7fee59b8fb8e")
 	)
+	(no_connect
+		(at 127 227.33)
+		(uuid "fbe14bee-905b-4c6c-8d56-02386481c86b")
+	)
 	(wire
 		(pts
 			(xy 132.08 185.42) (xy 134.62 185.42)
@@ -7534,6 +8132,16 @@
 			(type default)
 		)
 		(uuid "05664bfe-6831-4672-ab13-ab217cf7298e")
+	)
+	(wire
+		(pts
+			(xy 123.19 222.25) (xy 127 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "059b7359-1945-482a-9ad2-21854fa61583")
 	)
 	(wire
 		(pts
@@ -7634,6 +8242,16 @@
 			(type default)
 		)
 		(uuid "1d99d085-62e6-4e3a-9ded-e93ea446ed60")
+	)
+	(wire
+		(pts
+			(xy 123.19 222.25) (xy 123.19 226.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1ef29f9b-364e-4a46-a69e-d5bab2fc8311")
 	)
 	(wire
 		(pts
@@ -7867,7 +8485,17 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 201.93) (xy 46.99 201.93)
+			(xy 193.04 214.63) (xy 195.58 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3cb4f4fc-4f2a-4414-9b3c-dd9be78b4da9")
+	)
+	(wire
+		(pts
+			(xy 26.67 204.47) (xy 43.18 204.47)
 		)
 		(stroke
 			(width 0)
@@ -7884,6 +8512,16 @@
 			(type default)
 		)
 		(uuid "3fb2f190-4ca0-4fb3-9fd5-971b66677179")
+	)
+	(wire
+		(pts
+			(xy 120.65 214.63) (xy 127 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3fbf410e-6b83-4207-9247-c6fee3928f17")
 	)
 	(wire
 		(pts
@@ -8077,6 +8715,16 @@
 	)
 	(wire
 		(pts
+			(xy 127 219.71) (xy 120.65 219.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d3d594b-8642-41aa-bf3c-96c3c5c28fe0")
+	)
+	(wire
+		(pts
 			(xy 106.68 68.58) (xy 106.68 66.04)
 		)
 		(stroke
@@ -8084,6 +8732,16 @@
 			(type default)
 		)
 		(uuid "5ddf3721-ac94-4187-a24d-10827876f96c")
+	)
+	(wire
+		(pts
+			(xy 167.64 219.71) (xy 171.45 219.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6421f068-e409-4050-9d17-1fb179560bcb")
 	)
 	(wire
 		(pts
@@ -8197,6 +8855,16 @@
 	)
 	(wire
 		(pts
+			(xy 171.45 214.63) (xy 171.45 217.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6e34b411-bd28-484e-98ea-14eec727a79e")
+	)
+	(wire
+		(pts
 			(xy 231.14 34.29) (xy 231.14 30.48)
 		)
 		(stroke
@@ -8204,6 +8872,16 @@
 			(type default)
 		)
 		(uuid "72aa1cae-78a7-4975-9700-640bf377301a")
+	)
+	(wire
+		(pts
+			(xy 168.91 214.63) (xy 167.64 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73fb4461-7857-4451-90db-cb491e02c4c6")
 	)
 	(wire
 		(pts
@@ -8377,6 +9055,16 @@
 	)
 	(wire
 		(pts
+			(xy 167.64 222.25) (xy 184.15 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8f6c9a54-d0a3-498c-95d3-80571bfd6718")
+	)
+	(wire
+		(pts
 			(xy 134.62 157.48) (xy 134.62 160.02)
 		)
 		(stroke
@@ -8437,6 +9125,16 @@
 	)
 	(wire
 		(pts
+			(xy 179.07 219.71) (xy 181.61 219.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9abdfe3b-4eca-4a82-b76c-70f401173008")
+	)
+	(wire
+		(pts
 			(xy 48.26 179.07) (xy 50.8 179.07)
 		)
 		(stroke
@@ -8454,6 +9152,16 @@
 			(type default)
 		)
 		(uuid "a0f58e2b-567e-48d0-ad06-af908c8c6ae2")
+	)
+	(wire
+		(pts
+			(xy 171.45 214.63) (xy 177.8 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a15129aa-0dbf-40da-b080-ae0feb48ba4d")
 	)
 	(wire
 		(pts
@@ -8637,6 +9345,16 @@
 	)
 	(wire
 		(pts
+			(xy 118.11 214.63) (xy 120.65 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd7dc686-8a1a-433b-8ca3-f7a125c59e19")
+	)
+	(wire
+		(pts
 			(xy 251.2835 137.4213) (xy 256.3635 137.4213)
 		)
 		(stroke
@@ -8717,6 +9435,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 207.01) (xy 168.91 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d978c2ff-81ea-418a-9273-1bd6cc2e20c1")
+	)
+	(wire
+		(pts
 			(xy 231.14 30.48) (xy 238.76 30.48)
 		)
 		(stroke
@@ -8734,16 +9462,6 @@
 			(type default)
 		)
 		(uuid "e27de91c-52ab-402c-b25a-70e3467c7a05")
-	)
-	(wire
-		(pts
-			(xy 46.99 207.01) (xy 46.99 204.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e399ff96-24aa-4597-85ac-c3f9819f5ca6")
 	)
 	(wire
 		(pts
@@ -8797,6 +9515,16 @@
 	)
 	(wire
 		(pts
+			(xy 171.45 217.17) (xy 167.64 217.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e8342839-e088-422f-89a5-9d30f36fc670")
+	)
+	(wire
+		(pts
 			(xy 238.76 58.42) (xy 238.76 60.96)
 		)
 		(stroke
@@ -8804,6 +9532,16 @@
 			(type default)
 		)
 		(uuid "e929d729-85bb-49b3-a091-b581cbed7f02")
+	)
+	(wire
+		(pts
+			(xy 120.65 214.63) (xy 120.65 219.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea477037-6899-4951-9d98-53d781e72d3b")
 	)
 	(wire
 		(pts
@@ -8947,16 +9685,6 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 207.01) (xy 41.91 207.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fde123b7-14ae-4efc-ade3-5d901d678d82")
-	)
-	(wire
-		(pts
 			(xy 234.95 33.02) (xy 238.76 33.02)
 		)
 		(stroke
@@ -8964,6 +9692,16 @@
 			(type default)
 		)
 		(uuid "fec84bc0-a7d8-43da-bef9-64dfd6dfa239")
+	)
+	(wire
+		(pts
+			(xy 191.77 222.25) (xy 194.31 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff5ee198-72e6-4cc8-8d30-c7ad4973cc39")
 	)
 	(wire
 		(pts
@@ -9383,6 +10121,30 @@
 			)
 		)
 	)
+	(global_label "RP2350_GPIO_5"
+		(shape input)
+		(at 167.64 232.41 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2e31a3cd-23cd-4449-933c-4650824b05ed")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 185.6232 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "RP2350_XIN"
 		(shape input)
 		(at 135.89 109.22 180)
@@ -9433,17 +10195,17 @@
 	)
 	(global_label "RP2350_USB_DN"
 		(shape input)
-		(at 34.29 207.01 180)
+		(at 73.66 201.93 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "338de8e1-cda0-47fc-a55a-d41c86a2a074")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 15.5811 207.01 0)
+			(at 92.3689 201.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9451,7 +10213,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 	)
@@ -9865,7 +10627,7 @@
 	)
 	(global_label "USB_VBUS"
 		(shape input)
-		(at 69.85 201.93 0)
+		(at 66.04 204.47 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9875,7 +10637,7 @@
 		)
 		(uuid "6ff10307-abd2-4a89-815c-f66a06bf4d6d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 82.5114 201.93 0)
+			(at 78.7014 204.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10028,30 +10790,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-			)
-		)
-	)
-	(global_label "USB_D+"
-		(shape input)
-		(at 69.85 199.39 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "85925dc8-4c26-4f6b-a07e-6e7863aa57d4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.4552 199.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 			)
 		)
 	)
@@ -10225,7 +10963,7 @@
 	)
 	(global_label "RP2350_USB_DP"
 		(shape input)
-		(at 77.47 204.47 0)
+		(at 73.66 207.01 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10235,7 +10973,7 @@
 		)
 		(uuid "9b38faa9-ee4f-497d-8ffd-07c3e29f2061")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 96.1184 204.47 0)
+			(at 92.3084 207.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10343,6 +11081,30 @@
 			)
 		)
 	)
+	(global_label "RP2350_GPIO_8"
+		(shape input)
+		(at 167.64 227.33 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a8009182-a126-496a-b15a-79ef3d7ae980")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 185.6232 227.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "BATT+"
 		(shape input)
 		(at 179.07 185.42 180)
@@ -10436,6 +11198,30 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+	)
+	(global_label "RP2350_GPIO_9"
+		(shape input)
+		(at 123.19 222.25 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ba9fedf1-3eb8-48c9-97a4-8f41e8dcb26a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 105.2068 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 	)
@@ -10777,7 +11563,7 @@
 	)
 	(global_label "USB_D-"
 		(shape input)
-		(at 46.99 199.39 180)
+		(at 43.18 201.93 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10787,7 +11573,7 @@
 		)
 		(uuid "ec813763-1b39-413d-980d-f9c0b252e236")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 36.3848 199.39 0)
+			(at 32.5748 201.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10820,6 +11606,54 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+	)
+	(global_label "USB_D+"
+		(shape input)
+		(at 43.18 207.01 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f4c1d3b2-03d2-4656-aca5-a26366b95cfb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 32.5748 207.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "RP2350_GPIO_6"
+		(shape input)
+		(at 168.91 210.82 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f584c2e9-d5c8-4792-ab4b-d101ff340de7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 186.8932 210.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 	)
@@ -10919,6 +11753,30 @@
 			)
 		)
 	)
+	(global_label "RP2350_GPIO_4"
+		(shape input)
+		(at 167.64 229.87 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "fb178885-4e40-4465-a717-2002e154462f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 185.6232 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "RP2350_GPIO_17"
 		(shape input)
 		(at 186.69 99.06 0)
@@ -10932,6 +11790,30 @@
 		(uuid "fd602aca-ff71-4e91-a878-9bd462f031df")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 205.8827 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "RP2350_GPIO_7"
+		(shape input)
+		(at 167.64 224.79 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "fdd0307c-456f-4b4a-a16c-2dbbb861b31a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 185.6232 224.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11666,6 +12548,83 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 194.31 222.25 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0f7fc85f-f3bf-4d12-8325-b8e825137d3a")
+		(property "Reference" "#PWR066"
+			(at 194.31 226.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 197.866 221.488 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 194.31 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 194.31 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 194.31 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a4a9a71c-14d5-4006-a732-24e137a07a3e")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "#PWR066")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "easyeda2kicad:BH-18650-A1AJ006")
 		(at 184.15 163.83 0)
 		(unit 1)
@@ -11780,7 +12739,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 38.1 207.01 270)
+		(at 69.85 201.93 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11790,7 +12749,7 @@
 		(dnp no)
 		(uuid "12b30885-36c5-4a55-a704-8a6e59115400")
 		(property "Reference" "R34"
-			(at 38.1 204.724 90)
+			(at 69.85 199.898 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11800,7 +12759,7 @@
 			)
 		)
 		(property "Value" "27"
-			(at 38.1 207.01 90)
+			(at 69.85 201.93 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11810,7 +12769,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 38.1 205.232 90)
+			(at 69.85 203.708 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11821,7 +12780,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 38.1 207.01 0)
+			(at 69.85 201.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11832,7 +12791,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 38.1 207.01 0)
+			(at 69.85 201.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12013,7 +12972,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 41.91 201.93 0)
+		(at 26.67 204.47 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -12024,7 +12983,7 @@
 		(dnp no)
 		(uuid "1ecfcc48-fae0-4279-b9b6-791aa7d6484b")
 		(property "Reference" "#PWR061"
-			(at 41.91 208.28 0)
+			(at 26.67 210.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12035,7 +12994,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 44.45 204.47 0)
+			(at 29.21 207.01 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12045,7 +13004,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 41.91 201.93 0)
+			(at 26.67 204.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12056,7 +13015,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 41.91 201.93 0)
+			(at 26.67 204.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12067,7 +13026,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 41.91 201.93 0)
+			(at 26.67 204.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12562,6 +13521,83 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 195.58 214.63 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2c6822d3-ad63-4954-9c60-ea5b954e4c3b")
+		(property "Reference" "#PWR064"
+			(at 195.58 218.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 199.644 212.598 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 195.58 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 195.58 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 195.58 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "64e77335-bf57-4932-90e4-26916b8b87f2")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "#PWR064")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 236.22 106.68 270)
 		(unit 1)
@@ -12875,6 +13911,83 @@
 			(project "ReallyTuffKinematic GPS"
 				(path "/63755c59-753c-4530-b223-ae03b8994baf"
 					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 181.61 219.71 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "32532d1d-1e17-4436-aeea-202578b53e75")
+		(property "Reference" "#PWR065"
+			(at 181.61 223.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 184.658 218.948 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 181.61 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 181.61 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 181.61 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "80c42c1e-6db9-44a4-b534-e6977f3e6dc8")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "#PWR065")
 					(unit 1)
 				)
 			)
@@ -13653,6 +14766,85 @@
 	)
 	(symbol
 		(lib_id "Device:C")
+		(at 181.61 214.63 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "44c4a838-1341-495a-87ff-83a8b3e192be")
+		(property "Reference" "C33"
+			(at 184.658 213.36 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7uF"
+			(at 185.42 216.154 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 185.42 213.6648 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 181.61 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 181.61 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "0787d895-e189-4f96-9357-eb33cbac191d")
+		)
+		(pin "1"
+			(uuid "3b5b8f97-bb5b-41dd-9905-49146b5de64d")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "C33")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
 		(at 22.86 127 0)
 		(unit 1)
 		(body_style 1)
@@ -13811,6 +15003,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 118.11 214.63 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4e27b028-1dbf-45c6-848b-6724e3962d50")
+		(property "Reference" "#PWR068"
+			(at 118.11 220.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.062 217.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 118.11 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 118.11 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "382825c4-7993-4685-86ff-cd177be660df")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "#PWR068")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 60.96 127 0)
 		(unit 1)
@@ -13886,6 +15156,84 @@
 			(project "ReallyTuffKinematic GPS"
 				(path "/63755c59-753c-4530-b223-ae03b8994baf"
 					(reference "C20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 167.64 234.95 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4efd4ce8-75c7-4dff-8bbd-87a2d7cd9d42")
+		(property "Reference" "#PWR067"
+			(at 167.64 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 171.196 237.49 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.64 234.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 234.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 167.64 234.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f56c6bd1-a030-488c-9334-28743ed4d30d")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "#PWR067")
 					(unit 1)
 				)
 			)
@@ -14051,7 +15399,7 @@
 	)
 	(symbol
 		(lib_id "easyeda2kicad:USBLC6-2SC6_C2687116")
-		(at 58.42 201.93 0)
+		(at 54.61 204.47 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14062,7 +15410,7 @@
 		(fields_autoplaced yes)
 		(uuid "5b13439b-cb9f-4ccf-bb59-2b83a3a0dfd0")
 		(property "Reference" "D5"
-			(at 58.42 191.77 0)
+			(at 54.61 194.31 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14072,7 +15420,7 @@
 			)
 		)
 		(property "Value" "USBLC6-2SC6_C2687116"
-			(at 58.42 194.31 0)
+			(at 54.61 196.85 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14082,7 +15430,7 @@
 			)
 		)
 		(property "Footprint" "easyeda2kicad:SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BL"
-			(at 58.42 212.09 0)
+			(at 54.61 214.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14093,7 +15441,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2687116.pdf"
-			(at 58.42 214.63 0)
+			(at 54.61 217.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14104,7 +15452,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 58.42 201.93 0)
+			(at 54.61 204.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14115,7 +15463,7 @@
 			)
 		)
 		(property "Manufacturer" "UMW(友台半导体)"
-			(at 58.42 217.17 0)
+			(at 54.61 219.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14126,7 +15474,7 @@
 			)
 		)
 		(property "MPN" "USBLC6-2SC6"
-			(at 58.42 219.71 0)
+			(at 54.61 222.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14137,7 +15485,7 @@
 			)
 		)
 		(property "LCSC Part" "C2687116"
-			(at 58.42 222.25 0)
+			(at 54.61 224.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16538,6 +17886,196 @@
 		)
 	)
 	(symbol
+		(lib_id "Mouser:PNT-SG3FS-TR")
+		(at 127 214.63 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8c4051b3-19bb-4deb-a83c-6bb3d45debda")
+		(property "Reference" "IC1"
+			(at 147.32 207.01 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PNT-SG3FS-TR"
+			(at 147.32 209.55 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "PNTSG3FSTR"
+			(at 163.83 309.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Datasheet" ""
+			(at 163.83 409.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Description" "GNSS / GPS Modules GNSS Module - Low power Teseo III flash-based Multi-constellation Receiver Module (1000pc T&R)"
+			(at 127 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Height" "2.33"
+			(at 163.83 609.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 163.83 709.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 163.83 809.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Manufacturer_Name" "Lantronix"
+			(at 163.83 909.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Manufacturer_Part_Number" "PNT-SG3FS-TR"
+			(at 163.83 1009.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "3"
+			(uuid "9a644ca9-3d21-4e35-9654-49543b5b9cea")
+		)
+		(pin "4"
+			(uuid "6aba0e47-a67c-4c69-a7d0-45300c66b94e")
+		)
+		(pin "1"
+			(uuid "8b08f76f-59d3-4f3c-8c68-8f46a1c27e5b")
+		)
+		(pin "2"
+			(uuid "656e653e-e910-4762-80d7-00e9b66e6024")
+		)
+		(pin "8"
+			(uuid "45e6dc3f-348a-416e-8bb4-6aa468dfb01b")
+		)
+		(pin "9"
+			(uuid "b9faecfb-4789-4758-8f41-272a036deed1")
+		)
+		(pin "7"
+			(uuid "c1a9a622-702f-4899-b62b-ea85db9046e4")
+		)
+		(pin "12"
+			(uuid "db47c0b4-17e1-40b5-bc20-dce264e25a07")
+		)
+		(pin "5"
+			(uuid "0efc0b7c-95b5-469e-8993-4cfcbeaa142a")
+		)
+		(pin "11"
+			(uuid "6ca96392-7899-4352-bb84-a57f1d78808a")
+		)
+		(pin "6"
+			(uuid "2baf67c0-fb72-49e2-9025-c2fe890213e5")
+		)
+		(pin "14"
+			(uuid "041f11ef-c890-48c1-a256-fd7e39972063")
+		)
+		(pin "16"
+			(uuid "27ea0b16-5ae1-4c68-ae3d-b880d796c446")
+		)
+		(pin "13"
+			(uuid "5d7a7dd4-4792-4198-b5ab-b28cbb44090d")
+		)
+		(pin "10"
+			(uuid "098989aa-ae89-4265-a796-fc8255ea98fc")
+		)
+		(pin "17"
+			(uuid "59180cde-20df-496d-b501-c0c22451034c")
+		)
+		(pin "18"
+			(uuid "e2afbcae-3959-4a4e-bad7-cba4ec9fa9a3")
+		)
+		(pin "15"
+			(uuid "01169dcc-4f23-438f-8bba-a2abb2adeb74")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "IC1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 113.03 78.74 0)
 		(unit 1)
@@ -16774,6 +18312,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 175.26 219.71 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9244c443-153c-45bd-89b9-f3c00b1e87ed")
+		(property "Reference" "C35"
+			(at 178.308 218.44 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 179.578 220.98 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 179.07 218.7448 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 175.26 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 175.26 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "5a9469ed-b8b7-4a39-bd8a-9421edc84651")
+		)
+		(pin "1"
+			(uuid "23022d7c-cb77-414b-b4b0-2aef2575a573")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "C35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 256.3635 137.4213 0)
 		(unit 1)
@@ -16852,7 +18469,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 73.66 204.47 270)
+		(at 69.85 207.01 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16862,7 +18479,7 @@
 		(dnp no)
 		(uuid "965b40c6-57e9-4a72-833c-173b312f321e")
 		(property "Reference" "R35"
-			(at 73.66 206.502 90)
+			(at 69.85 209.55 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16872,7 +18489,7 @@
 			)
 		)
 		(property "Value" "27"
-			(at 73.66 204.47 90)
+			(at 69.85 207.01 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16882,7 +18499,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 73.66 202.692 90)
+			(at 69.85 205.232 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16893,7 +18510,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 73.66 204.47 0)
+			(at 69.85 207.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16904,7 +18521,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 73.66 204.47 0)
+			(at 69.85 207.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17959,6 +19576,83 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 176.53 207.01 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b07328ee-5e31-48d8-9e0e-56e1fb8af489")
+		(property "Reference" "#PWR062"
+			(at 176.53 210.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 175.514 203.454 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 176.53 207.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 176.53 207.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 176.53 207.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c7767071-6d05-4c39-ab7d-eabd79bc4cd4")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "#PWR062")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 21.59 160.02 0)
 		(unit 1)
@@ -18030,6 +19724,85 @@
 			(project "ReallyTuffKinematic GPS"
 				(path "/63755c59-753c-4530-b223-ae03b8994baf"
 					(reference "#PWR037")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 172.72 207.01 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b90f28cf-7e4f-42ed-93cb-ff5aef8255f5")
+		(property "Reference" "R17"
+			(at 171.958 204.978 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 172.72 207.01 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 172.72 205.232 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 172.72 207.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 172.72 207.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "cb5be558-ff5e-4d22-b509-2f5514f1592e")
+		)
+		(pin "2"
+			(uuid "1437f573-d964-40d0-a2fe-23405bc4d23a")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "R17")
 					(unit 1)
 				)
 			)
@@ -19661,6 +21434,84 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 115.57 226.06 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "da272788-62e5-4eb7-8053-717f4e3e3491")
+		(property "Reference" "#PWR063"
+			(at 115.57 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 112.268 228.854 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 226.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 226.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 115.57 226.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2980afbb-d0de-4b8d-9f1f-2645570e24ba")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "#PWR063")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 32.1676 72.6275 0)
 		(unit 1)
 		(body_style 1)
@@ -19889,6 +21740,85 @@
 			(project "ReallyTuffKinematic GPS"
 				(path "/63755c59-753c-4530-b223-ae03b8994baf"
 					(reference "C11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 119.38 226.06 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "df3db4ed-be3a-401b-a401-98c7040ab2e7")
+		(property "Reference" "R18"
+			(at 119.126 228.346 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 119.38 226.06 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 119.38 224.282 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 119.38 226.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 119.38 226.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2114e128-0c5a-49a6-974f-9b3fc3c2d14a")
+		)
+		(pin "2"
+			(uuid "3f8bf6b8-cf47-47a5-bfe6-7d1b934f8fce")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "R18")
 					(unit 1)
 				)
 			)
@@ -20501,6 +22431,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 189.23 214.63 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "eaea6b44-213e-4f8e-8ee7-24b964f6b9ad")
+		(property "Reference" "C34"
+			(at 192.278 213.36 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 193.548 216.408 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 193.04 213.6648 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 189.23 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 189.23 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a542281f-90ea-4a73-9ccd-f54696eb0c12")
+		)
+		(pin "1"
+			(uuid "9be4fc68-3dd1-4b71-9415-56d4a134ce1c")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "C34")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "easyeda2kicad:ESP32-C3-MINI-1-N4")
 		(at 250.19 55.88 180)
 		(unit 1)
@@ -20761,6 +22770,85 @@
 			(project "ReallyTuffKinematic GPS"
 				(path "/63755c59-753c-4530-b223-ae03b8994baf"
 					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 187.96 222.25 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ed58bc0e-c878-4674-9d1b-a3f08b9d94be")
+		(property "Reference" "C36"
+			(at 191.008 220.98 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 192.278 223.52 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 191.77 221.2848 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 187.96 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 187.96 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "95243408-83f7-4918-98db-3fc97e3909bd")
+		)
+		(pin "1"
+			(uuid "8375ff34-50b8-4c87-8c63-59dc6840fcc2")
+		)
+		(instances
+			(project "ReallyTuffKinematic GPS"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "C36")
 					(unit 1)
 				)
 			)
