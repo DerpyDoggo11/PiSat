@@ -472,7 +472,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "ReallyTuffKinematic GPS.kicad_pro",
+    "filename": "PiSat.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -627,18 +627,18 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "ReallyTuffKinematic GPS.kicad_sch",
-        "name": "ReallyTuffKinematic GPS",
+        "filename": "PiSat.kicad_sch",
+        "name": "PiSat",
         "uuid": "63755c59-753c-4530-b223-ae03b8994baf"
       }
     ],
-    "used_designators": "U6,#PWR31,#PWR33,#PWR44-45,#PWR47,#PWR74-77,C38-39,R10,R19-20",
+    "used_designators": "",
     "variants": []
   },
   "sheets": [
     [
       "63755c59-753c-4530-b223-ae03b8994baf",
-      "ReallyTuffKinematic GPS"
+      "PiSat"
     ]
   ],
   "text_variables": {},
