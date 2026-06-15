@@ -54,7 +54,40 @@
         }
       },
       "diff_pair_dimensions": [],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "copper_edge_clearance|14920000|950000|d070d090-4b28-4b0a-90b8-6d778ce37deb|de00f4b8-9d00-4d33-a17f-7b922f2abeb4",
+          ""
+        ],
+        [
+          "copper_edge_clearance|23580000|950000|d070d090-4b28-4b0a-90b8-6d778ce37deb|d7c0e741-bc62-4c83-ac34-e26b1f166ac6",
+          ""
+        ],
+        [
+          "silk_edge_clearance|14780000|0|d070d090-4b28-4b0a-90b8-6d778ce37deb|87aaafae-b9e1-40d2-9fe2-b60fcd79defe",
+          ""
+        ],
+        [
+          "silk_edge_clearance|23720000|0|d070d090-4b28-4b0a-90b8-6d778ce37deb|3dfb207e-6f66-4029-a0c3-350683097fce",
+          ""
+        ],
+        [
+          "silk_edge_clearance|85000000|26638211|447aebf5-af7e-4d90-8843-8b96d62a6730|3db250fe-e206-4bf9-aa31-73574695904a",
+          ""
+        ],
+        [
+          "silk_edge_clearance|85000000|32738211|447aebf5-af7e-4d90-8843-8b96d62a6730|43d3bc63-ec13-493e-969b-eaf38e4e5c77",
+          ""
+        ],
+        [
+          "silk_edge_clearance|85040000|32738211|447aebf5-af7e-4d90-8843-8b96d62a6730|807098f5-077f-4224-bdd6-7f4a80051dc1",
+          ""
+        ],
+        [
+          "silk_over_copper|74243606|28665348|631ee331-d9e7-441e-813a-68b410023acf|d46196ca-f4d5-48f7-9d68-6511c26a5e74",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -124,11 +157,11 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.0,
-        "min_connection": 0.0,
+        "min_clearance": 0.15,
+        "min_connection": 0.2,
         "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
-        "min_hole_clearance": 0.25,
+        "min_hole_clearance": 0.235,
         "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.2,
         "min_microvia_drill": 0.1,
@@ -136,7 +169,7 @@
         "min_silk_clearance": 0.0,
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 0.3,
+        "min_through_hole_diameter": 0.2,
         "min_track_width": 0.2,
         "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,

@@ -11988,6 +11988,30 @@
 		)
 		(uuid "ff8feffc-ac42-41b2-b15c-095802a5566c")
 	)
+	(global_label "RP2350_GPIO_10"
+		(shape input)
+		(at 245.11 195.58 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "00c7f993-5995-4833-b808-357bf6c734c6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 225.9173 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
 	(global_label "RP2350_GPIO_5"
 		(shape input)
 		(at 186.69 68.58 0)
@@ -12638,7 +12662,7 @@
 	)
 	(global_label "RP2350_GPIO_11"
 		(shape input)
-		(at 245.11 195.58 180)
+		(at 251.46 184.15 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -12646,9 +12670,9 @@
 			)
 			(justify right)
 		)
-		(uuid "4a2c2edc-3356-477b-bd4d-4bf94a4443cc")
+		(uuid "49bf5b86-f86a-4967-aca9-3e44f0dd6793")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 225.9173 195.58 0)
+			(at 232.2673 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13513,30 +13537,6 @@
 		(uuid "c744752b-53c7-4acb-89df-e88722f4a642")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 31.9701 255.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "RP2350_GPIO_10"
-		(shape input)
-		(at 251.46 184.15 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "c78f36fc-1c3d-4c73-a0e7-df9603e3d69a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 232.2673 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14751,7 +14751,7 @@
 	(symbol
 		(lib_id "easyeda2kicad:BH-18650-A1AJ006")
 		(at 184.15 163.83 0)
-		(mirror y)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14761,7 +14761,7 @@
 		(dnp no)
 		(uuid "12192111-88a6-4b72-8a9a-f4f3a13f6e48")
 		(property "Reference" "BT1"
-			(at 184.15 156.21 0)
+			(at 184.15 159.766 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14771,7 +14771,7 @@
 			)
 		)
 		(property "Value" "BH-18650-A1AJ006"
-			(at 184.15 158.75 0)
+			(at 184.15 157.226 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14781,7 +14781,7 @@
 			)
 		)
 		(property "Footprint" "easyeda2kicad:BAT-TH_BH-18650-A1AJ006"
-			(at 184.15 171.45 0)
+			(at 184.15 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14792,7 +14792,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C5290175.pdf"
-			(at 184.15 173.99 0)
+			(at 184.15 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14814,7 +14814,7 @@
 			)
 		)
 		(property "Manufacturer" "MYOUNG(美阳)"
-			(at 184.15 176.53 0)
+			(at 184.15 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14825,7 +14825,7 @@
 			)
 		)
 		(property "MPN" "BH-18650-A1AJ006"
-			(at 184.15 179.07 0)
+			(at 184.15 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14836,7 +14836,7 @@
 			)
 		)
 		(property "LCSC Part" "C5290175"
-			(at 184.15 181.61 0)
+			(at 184.15 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
