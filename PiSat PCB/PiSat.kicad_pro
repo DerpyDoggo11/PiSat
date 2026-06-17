@@ -50,11 +50,51 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.5
+          "min_clearance": 0.0
         }
       },
       "diff_pair_dimensions": [],
       "drc_exclusions": [
+        [
+          "clearance|41035000|29450000|5accd2bc-43ac-4023-9ca5-1ba72b7ea0b8|18d0a85e-d737-41f2-8253-c87e7f5efee8",
+          ""
+        ],
+        [
+          "clearance|41035000|29950000|1b70fb41-100c-4a4b-84ad-35effda92ec8|18d0a85e-d737-41f2-8253-c87e7f5efee8",
+          ""
+        ],
+        [
+          "clearance|41500000|30915000|1aca8a65-c021-444f-9878-bfc12422b6f5|18d0a85e-d737-41f2-8253-c87e7f5efee8",
+          ""
+        ],
+        [
+          "clearance|42500000|28485000|4b036324-b112-4d1b-a80c-c2e33cbf0752|18d0a85e-d737-41f2-8253-c87e7f5efee8",
+          ""
+        ],
+        [
+          "clearance|42500000|30915000|2d41e765-ac9f-404d-bc0b-5039c2092f2a|18d0a85e-d737-41f2-8253-c87e7f5efee8",
+          ""
+        ],
+        [
+          "clearance|43000000|28485000|374f0bc0-ee1f-47ca-a0a8-a25aaeb40716|18d0a85e-d737-41f2-8253-c87e7f5efee8",
+          ""
+        ],
+        [
+          "clearance|43465000|28950000|d791a791-1ed2-4846-9d5d-6108c92f23f8|18d0a85e-d737-41f2-8253-c87e7f5efee8",
+          ""
+        ],
+        [
+          "clearance|43465000|29450000|dd6d606c-9e1d-4f39-8a0b-7db96a54162e|18d0a85e-d737-41f2-8253-c87e7f5efee8",
+          ""
+        ],
+        [
+          "clearance|43465000|29950000|02412334-d416-4014-8fcc-c14a39b3c663|18d0a85e-d737-41f2-8253-c87e7f5efee8",
+          ""
+        ],
+        [
+          "clearance|43465000|30450000|2fa027eb-a9ba-4b91-9405-6bceed0111a5|18d0a85e-d737-41f2-8253-c87e7f5efee8",
+          ""
+        ],
         [
           "copper_edge_clearance|14920000|950000|d070d090-4b28-4b0a-90b8-6d778ce37deb|de00f4b8-9d00-4d33-a17f-7b922f2abeb4",
           ""
@@ -72,6 +112,22 @@
           ""
         ],
         [
+          "silk_edge_clearance|40570000|0|d070d090-4b28-4b0a-90b8-6d778ce37deb|17e1785a-0981-4346-990e-c55eaa14e11c",
+          ""
+        ],
+        [
+          "silk_edge_clearance|41850000|0|d070d090-4b28-4b0a-90b8-6d778ce37deb|c06f3520-cebc-43f8-ace3-fc6365043c3e",
+          ""
+        ],
+        [
+          "silk_edge_clearance|83407974|55649077|97fa048f-5d78-455a-9143-021743c7559e|5a221601-c336-4a6d-8a69-5b6dc5b4f699",
+          ""
+        ],
+        [
+          "silk_edge_clearance|83407974|55649077|97fa048f-5d78-455a-9143-021743c7559e|f09334f8-491c-4960-a9d5-2720d9d91743",
+          ""
+        ],
+        [
           "silk_edge_clearance|85000000|26638211|447aebf5-af7e-4d90-8843-8b96d62a6730|3db250fe-e206-4bf9-aa31-73574695904a",
           ""
         ],
@@ -85,6 +141,38 @@
         ],
         [
           "silk_over_copper|74243606|28665348|631ee331-d9e7-441e-813a-68b410023acf|d46196ca-f4d5-48f7-9d68-6511c26a5e74",
+          ""
+        ],
+        [
+          "silk_overlap|67344295|12384649|a30a8d46-cfc7-460d-b2ab-72332770b1a9|b22ef2e0-bc82-46a4-b471-63bdc5df3ff5",
+          ""
+        ],
+        [
+          "silk_overlap|67344295|4884649|5fe951c8-3e86-48b0-a55f-b263c2962d1f|b22ef2e0-bc82-46a4-b471-63bdc5df3ff5",
+          ""
+        ],
+        [
+          "silk_overlap|67344295|7134649|8900c1c0-cd73-4cc5-8425-5a571443556b|b22ef2e0-bc82-46a4-b471-63bdc5df3ff5",
+          ""
+        ],
+        [
+          "silk_overlap|67344295|9634649|95c53c0c-cfe4-4c1a-b6f1-30a6888ad0b2|b22ef2e0-bc82-46a4-b471-63bdc5df3ff5",
+          ""
+        ],
+        [
+          "silk_overlap|68120000|2512735|aaddc7ad-47b2-43db-910f-5c733befc585|b1e78d4d-7683-4a76-9faf-fde1f3a09400",
+          ""
+        ],
+        [
+          "silk_overlap|68120000|5012735|5fe951c8-3e86-48b0-a55f-b263c2962d1f|aaddc7ad-47b2-43db-910f-5c733befc585",
+          ""
+        ],
+        [
+          "silk_overlap|68120000|7262735|8900c1c0-cd73-4cc5-8425-5a571443556b|aaddc7ad-47b2-43db-910f-5c733befc585",
+          ""
+        ],
+        [
+          "silk_overlap|68120000|9762735|95c53c0c-cfe4-4c1a-b6f1-30a6888ad0b2|aaddc7ad-47b2-43db-910f-5c733befc585",
           ""
         ]
       ],
@@ -535,7 +623,12 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "Default",
+        "pattern": "GND"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
@@ -665,7 +758,7 @@
         "uuid": "63755c59-753c-4530-b223-ae03b8994baf"
       }
     ],
-    "used_designators": "",
+    "used_designators": "J4-7",
     "variants": []
   },
   "sheets": [
