@@ -34196,8 +34196,8 @@
 		(uuid "1a6967d8-cc01-48c7-9098-2f0b685e5ee8")
 	)
 	(gr_line
-		(start 2.999999 56.000001)
-		(end 82 56.000002)
+		(start 2.999999 55.999999)
+		(end 82 56)
 		(stroke
 			(width 0.2)
 			(type solid)
