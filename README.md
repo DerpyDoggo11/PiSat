@@ -8,10 +8,11 @@ A GPS Microcontroller for RTK GPS applications
 ![Schematic](schematic.png)
 
 ## Introduction
-PiSat is a complete microcontroller with an embbedded GPS chip all in the footprint of a Raspbbery Pi. It uses an RP2350 for parallel computing + an esp32 for wifi connectivity. In addition, it uses the PNT-SG3FS-TR GPS chip with an SMA connector to attach an external GPS antenna. It also can run completely on battery power for an estimated 12 hours (for a 3600ma ) at full load.
+PiSat is a complete microcontroller with an embbedded GPS chip all in the footprint of a Raspbbery Pi. It uses an RP2350 for parallel computing + an esp32 for wifi connectivity. In addition, it uses the PNT-SG3FS-TR GPS chip with an SMA connector to attach an external GPS antenna. It also can run completely on battery power for an estimated 12 hours (based on the suggested battery) at full load.
 
 The main use case for this is in the Real Time Kinematic (RTK) GPS system, which requires two GPS recievers: one at a known location and one at the location being tracked. By calculating the error that both recievers share with other satilletes, this method can track an object down to just a few centimeters. The main drawback to RTK GPS systems is that they usually require expensive mcu for the calculations + external GPS modules which can increase the cost substantially. A fully embbedded approach makes the price much more approachable to hobbists.
 
+Note: this is licensed under the GPL/GNU license which means editing it is fine, just make sure to keep it open source.
 
 ## Bill of Materials 
 
