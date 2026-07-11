@@ -144,7 +144,7 @@
           ""
         ],
         [
-          "silk_overlap|67344295|12384649|a30a8d46-cfc7-460d-b2ab-72332770b1a9|b22ef2e0-bc82-46a4-b471-63bdc5df3ff5",
+          "silk_overlap|67344295|11546553|a30a8d46-cfc7-460d-b2ab-72332770b1a9|b22ef2e0-bc82-46a4-b471-63bdc5df3ff5",
           ""
         ],
         [
@@ -758,7 +758,7 @@
         "uuid": "63755c59-753c-4530-b223-ae03b8994baf"
       }
     ],
-    "used_designators": "J4-7",
+    "used_designators": "LED4-7",
     "variants": []
   },
   "sheets": [

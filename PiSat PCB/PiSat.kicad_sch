@@ -1209,207 +1209,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:LED"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "D"
-				(at 0 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "LED"
-				(at 0 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Light emitting diode"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Sim.Pins" "1=K 2=A"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "LED diode"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "LED_0_1"
-				(polyline
-					(pts
-						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -1.27) (xy -1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "LED_1_1"
-				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:R"
 			(pin_numbers
 				(hide yes)
@@ -6224,6 +6023,221 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "easyeda2kicad:KT-0603R"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "LED"
+				(at 0 3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "KT-0603R"
+				(at 0 -6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "easyeda2kicad:LED-SMD_L1.6-W0.8-R-RD"
+				(at 0 -8.89 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://lcsc.com/product-detail/Light-Emitting-Diodes-LED_Red-LED-0603_C2286.html"
+				(at 0 -11.43 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "0603"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "KENTO"
+				(at 0 -13.97 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "KT-0603R"
+				(at 0 -16.51 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC Part" "C2286"
+				(at 0 -19.05 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Light Emitting Diodes (LED)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "KT-0603R_0_1"
+				(polyline
+					(pts
+						(xy -3.81 2.03) (xy -2.79 1.52) (xy -3.3 1.02) (xy -3.81 2.03)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.79 3.05) (xy -1.78 2.54) (xy -2.29 2.03) (xy -2.79 3.05)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.03 0.25) (xy -3.81 2.03)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0.76) (xy -1.27 -3.3)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.02 1.27) (xy -2.79 3.05)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -2.79) (xy -1.27 -1.27) (xy 1.27 0.51) (xy 1.27 -2.79)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin unspecified line
+					(at 5.08 -1.27 180)
+					(length 3.81)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -5.08 -1.27 0)
+					(length 3.81)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "easyeda2kicad:LQW15AN47NG00D"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -9088,7 +9102,7 @@
 	)
 	(rectangle
 		(start 223.52 223.5199)
-		(end 261.62 248.92)
+		(end 269.24 248.92)
 		(stroke
 			(width 0.254)
 			(type solid)
@@ -9556,7 +9570,7 @@
 	)
 	(text "STATUS"
 		(exclude_from_sim no)
-		(at 254 246.38 0)
+		(at 261.874 246.634 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -10404,7 +10418,7 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 227.33) (xy 254 227.33)
+			(xy 255.27 226.06) (xy 257.81 226.06)
 		)
 		(stroke
 			(width 0)
@@ -10474,7 +10488,7 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 238.76) (xy 245.11 238.76)
+			(xy 252.73 238.76) (xy 251.46 238.76)
 		)
 		(stroke
 			(width 0)
@@ -10491,16 +10505,6 @@
 			(type default)
 		)
 		(uuid "1407e090-3fc7-4575-8d5d-678ccde7b049")
-	)
-	(wire
-		(pts
-			(xy 254 233.68) (xy 243.84 233.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "15554c0d-8ec8-4e14-b577-15cea43871fd")
 	)
 	(wire
 		(pts
@@ -11444,6 +11448,16 @@
 	)
 	(wire
 		(pts
+			(xy 250.19 232.41) (xy 257.81 232.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "71f1b30e-a75e-4f1e-aaf7-7b95b252555b")
+	)
+	(wire
+		(pts
 			(xy 243.84 135.89) (xy 243.84 138.43)
 		)
 		(stroke
@@ -11934,6 +11948,16 @@
 	)
 	(wire
 		(pts
+			(xy 104.14 176.53) (xy 107.95 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5a6fd56-6a33-460f-8184-eaaacd49c2b0")
+	)
+	(wire
+		(pts
 			(xy 281.94 76.2) (xy 281.94 78.74)
 		)
 		(stroke
@@ -12044,7 +12068,7 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 245.11) (xy 246.38 245.11)
+			(xy 243.84 243.84) (xy 252.73 243.84)
 		)
 		(stroke
 			(width 0)
@@ -12244,7 +12268,7 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 245.11) (xy 246.38 238.76)
+			(xy 252.73 243.84) (xy 252.73 238.76)
 		)
 		(stroke
 			(width 0)
@@ -12274,7 +12298,7 @@
 	)
 	(wire
 		(pts
-			(xy 254 227.33) (xy 254 233.68)
+			(xy 257.81 226.06) (xy 257.81 232.41)
 		)
 		(stroke
 			(width 0)
@@ -12454,7 +12478,7 @@
 	)
 	(global_label "RP2350_GPIO_10"
 		(shape input)
-		(at 245.11 238.76 180)
+		(at 251.46 238.76 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -12464,7 +12488,7 @@
 		)
 		(uuid "00c7f993-5995-4833-b808-357bf6c734c6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 225.9173 238.76 0)
+			(at 232.2673 238.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13102,7 +13126,7 @@
 	)
 	(global_label "RP2350_GPIO_11"
 		(shape input)
-		(at 251.46 227.33 180)
+		(at 255.27 226.06 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13112,7 +13136,7 @@
 		)
 		(uuid "49bf5b86-f86a-4967-aca9-3e44f0dd6793")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 232.2673 227.33 0)
+			(at 236.0773 226.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19226,7 +19250,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 228.6 245.11 0)
+		(at 226.06 243.84 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -19236,7 +19260,7 @@
 		(dnp no)
 		(uuid "53321cf7-d366-4479-b052-f9f927387e5c")
 		(property "Reference" "#PWR079"
-			(at 228.6 248.92 0)
+			(at 226.06 247.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19247,7 +19271,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 227.584 241.554 0)
+			(at 226.822 240.03 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19257,7 +19281,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 228.6 245.11 0)
+			(at 226.06 243.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19268,7 +19292,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 228.6 245.11 0)
+			(at 226.06 243.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19279,7 +19303,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 228.6 245.11 0)
+			(at 226.06 243.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20623,6 +20647,118 @@
 		)
 	)
 	(symbol
+		(lib_id "easyeda2kicad:KT-0603R")
+		(at 245.11 233.68 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "67ad4797-0ef1-46e9-bddd-2db3a3a45062")
+		(property "Reference" "LED7"
+			(at 252.73 231.14 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "KT-0603R"
+			(at 254.508 233.934 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:LED-SMD_L1.6-W0.8-R-RD"
+			(at 245.11 224.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://lcsc.com/product-detail/Light-Emitting-Diodes-LED_Red-LED-0603_C2286.html"
+			(at 245.11 222.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "0603"
+			(at 245.11 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KENTO"
+			(at 245.11 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "KT-0603R"
+			(at 245.11 217.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C2286"
+			(at 245.11 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "fb2937ba-f481-43d2-881c-b20d445128da")
+		)
+		(pin "1"
+			(uuid "a19d3d1f-0131-4b8d-8731-a3ab3b4ac36d")
+		)
+		(instances
+			(project "PiSat"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "LED7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "easyeda2kicad:CL21A226MAQNNNE")
 		(at 53.34 257.81 0)
 		(unit 1)
@@ -21168,96 +21304,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED")
-		(at 114.3 176.53 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "72532484-61f0-4e77-b169-20a6dab56205")
-		(property "Reference" "D8"
-			(at 114.3 173.228 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED"
-			(at 110.998 174.244 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0402_1005Metric"
-			(at 114.3 176.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 176.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Light emitting diode"
-			(at 114.3 176.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 114.3 176.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "458af938-eb54-4a23-b659-a9c2805fa775")
-		)
-		(pin "1"
-			(uuid "f1ea273b-4e8b-483c-9fce-215505cabb07")
-		)
-		(instances
-			(project "PiSat"
-				(path "/63755c59-753c-4530-b223-ae03b8994baf"
-					(reference "D8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 47.4076 49.7675 90)
 		(unit 1)
@@ -21410,6 +21456,119 @@
 			(project "PiSat"
 				(path "/63755c59-753c-4530-b223-ae03b8994baf"
 					(reference "R8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "easyeda2kicad:KT-0603R")
+		(at 113.03 182.88 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "744cf67b-a6a4-4ab9-a7dd-e425f884fbbe")
+		(property "Reference" "LED5"
+			(at 114.3 175.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "KT-0603R"
+			(at 114.3 177.8 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:LED-SMD_L1.6-W0.8-R-RD"
+			(at 113.03 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://lcsc.com/product-detail/Light-Emitting-Diodes-LED_Red-LED-0603_C2286.html"
+			(at 113.03 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "0603"
+			(at 113.03 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KENTO"
+			(at 113.03 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "KT-0603R"
+			(at 113.03 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C2286"
+			(at 113.03 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "c1b6ff69-5abd-4241-b6fe-e13e9f51d482")
+		)
+		(pin "1"
+			(uuid "b704c472-f32d-4070-9cf7-a62ed228257a")
+		)
+		(instances
+			(project "PiSat"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "LED5")
 					(unit 1)
 				)
 			)
@@ -21728,98 +21887,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED")
-		(at 240.03 245.11 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "80b2c5e5-da13-4997-a6ea-1f6232a933de")
-		(property "Reference" "D6"
-			(at 243.078 246.38 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED"
-			(at 239.268 242.824 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0402_1005Metric"
-			(at 240.03 245.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 240.03 245.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Light emitting diode"
-			(at 240.03 245.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 240.03 245.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "2ded52af-0ddd-44c4-b08c-0ecc70f11017")
-		)
-		(pin "1"
-			(uuid "afe91d78-92b7-47be-8a70-7d5f85790bbe")
-		)
-		(instances
-			(project "PiSat"
-				(path "/63755c59-753c-4530-b223-ae03b8994baf"
-					(reference "D6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3V")
-		(at 102.87 176.53 0)
+		(at 104.14 168.91 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -21829,7 +21898,7 @@
 		(dnp no)
 		(uuid "81005a79-1e8d-46e7-a353-4e421f011edd")
 		(property "Reference" "#PWR091"
-			(at 102.87 180.34 0)
+			(at 104.14 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21840,7 +21909,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 101.092 174.498 90)
+			(at 102.362 166.878 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -21850,7 +21919,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 102.87 176.53 0)
+			(at 104.14 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21861,7 +21930,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 102.87 176.53 0)
+			(at 104.14 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21872,7 +21941,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 102.87 176.53 0)
+			(at 104.14 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21966,96 +22035,6 @@
 			(project "PiSat"
 				(path "/63755c59-753c-4530-b223-ae03b8994baf"
 					(reference "#PWR082")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED")
-		(at 114.3 181.61 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "8380c5d6-2e4b-40bb-bdb9-f05bca4194aa")
-		(property "Reference" "D7"
-			(at 114.554 179.324 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED"
-			(at 110.998 179.832 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0402_1005Metric"
-			(at 114.3 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Light emitting diode"
-			(at 114.3 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 114.3 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "847be423-a27a-4bb8-978b-66e4ff68ddcc")
-		)
-		(pin "1"
-			(uuid "eac551a0-fe66-4cfd-88c0-cd4cdc64b246")
-		)
-		(instances
-			(project "PiSat"
-				(path "/63755c59-753c-4530-b223-ae03b8994baf"
-					(reference "D7")
 					(unit 1)
 				)
 			)
@@ -22961,96 +22940,6 @@
 			(project "PiSat"
 				(path "/63755c59-753c-4530-b223-ae03b8994baf"
 					(reference "R20")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED")
-		(at 240.03 233.68 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "8f552022-02ef-43d3-99b8-16520c8d5d18")
-		(property "Reference" "D4"
-			(at 243.078 234.95 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED"
-			(at 239.776 231.14 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0402_1005Metric"
-			(at 240.03 233.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 240.03 233.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Light emitting diode"
-			(at 240.03 233.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 240.03 233.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "0583013f-a1c1-4dbc-902e-f6a8509e7f70")
-		)
-		(pin "1"
-			(uuid "441e1303-f953-4b47-aadd-a3708206a552")
-		)
-		(instances
-			(project "PiSat"
-				(path "/63755c59-753c-4530-b223-ae03b8994baf"
-					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -26904,7 +26793,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 106.68 181.61 90)
+		(at 104.14 181.61 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -26914,7 +26803,7 @@
 		(dnp no)
 		(uuid "d8eda321-e037-4e81-b97b-a1d1cdb6cbb4")
 		(property "Reference" "R24"
-			(at 106.68 179.578 90)
+			(at 104.14 179.578 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26924,7 +26813,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 106.68 181.356 90)
+			(at 104.14 181.356 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26934,7 +26823,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 106.68 183.388 90)
+			(at 104.14 183.388 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26945,7 +26834,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 181.61 0)
+			(at 104.14 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26956,7 +26845,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 106.68 181.61 0)
+			(at 104.14 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27218,6 +27107,118 @@
 		)
 	)
 	(symbol
+		(lib_id "easyeda2kicad:KT-0603R")
+		(at 238.76 245.11 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "dbd667eb-f67e-4b5f-aa5b-1e9d900d9d56")
+		(property "Reference" "LED6"
+			(at 246.38 242.57 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "KT-0603R"
+			(at 248.158 245.364 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:LED-SMD_L1.6-W0.8-R-RD"
+			(at 238.76 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://lcsc.com/product-detail/Light-Emitting-Diodes-LED_Red-LED-0603_C2286.html"
+			(at 238.76 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "0603"
+			(at 238.76 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KENTO"
+			(at 238.76 231.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "KT-0603R"
+			(at 238.76 228.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C2286"
+			(at 238.76 226.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "065b7915-ae7c-4093-abdc-91ebe9159bd1")
+		)
+		(pin "1"
+			(uuid "673800b2-26d3-4e15-b24b-03c74a429c25")
+		)
+		(instances
+			(project "PiSat"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "LED6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 189.23 194.31 0)
 		(unit 1)
@@ -27289,6 +27290,119 @@
 			(project "PiSat"
 				(path "/63755c59-753c-4530-b223-ae03b8994baf"
 					(reference "#PWR056")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "easyeda2kicad:KT-0603R")
+		(at 113.03 177.8 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dce4c65b-6c0a-41cb-82eb-96a8ec5f7742")
+		(property "Reference" "LED4"
+			(at 114.3 170.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "KT-0603R"
+			(at 114.3 172.72 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:LED-SMD_L1.6-W0.8-R-RD"
+			(at 113.03 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://lcsc.com/product-detail/Light-Emitting-Diodes-LED_Red-LED-0603_C2286.html"
+			(at 113.03 166.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "0603"
+			(at 113.03 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KENTO"
+			(at 113.03 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "KT-0603R"
+			(at 113.03 161.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C2286"
+			(at 113.03 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d3e44e02-d57b-4579-bf17-1b7fc6fb5a5d")
+		)
+		(pin "1"
+			(uuid "3b787e07-bd17-4ccd-bc6b-64bb350fbac8")
+		)
+		(instances
+			(project "PiSat"
+				(path "/63755c59-753c-4530-b223-ae03b8994baf"
+					(reference "LED4")
 					(unit 1)
 				)
 			)
@@ -28451,7 +28565,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 228.6 233.68 0)
+		(at 232.41 232.41 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -28461,7 +28575,7 @@
 		(dnp no)
 		(uuid "ef4d5a1a-08f9-4c5b-9c3c-dcb018b54b2f")
 		(property "Reference" "#PWR078"
-			(at 228.6 237.49 0)
+			(at 232.41 236.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28472,7 +28586,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 227.584 230.124 0)
+			(at 231.394 228.854 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -28482,7 +28596,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 228.6 233.68 0)
+			(at 232.41 232.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28493,7 +28607,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 228.6 233.68 0)
+			(at 232.41 232.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28504,7 +28618,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 228.6 233.68 0)
+			(at 232.41 232.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28528,7 +28642,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 102.87 181.61 0)
+		(at 100.33 181.61 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -28538,7 +28652,7 @@
 		(dnp no)
 		(uuid "f1e53a41-0309-456c-9f97-911573a1b789")
 		(property "Reference" "#PWR088"
-			(at 102.87 185.42 0)
+			(at 100.33 185.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28549,7 +28663,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 101.092 180.594 90)
+			(at 101.854 177.8 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -28559,7 +28673,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 102.87 181.61 0)
+			(at 100.33 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28570,7 +28684,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 102.87 181.61 0)
+			(at 100.33 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28581,7 +28695,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 102.87 181.61 0)
+			(at 100.33 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28684,7 +28798,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 232.41 233.68 90)
+		(at 236.22 232.41 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -28694,7 +28808,7 @@
 		(dnp no)
 		(uuid "f6a5c4ce-e2d9-4d1a-bf14-21a2a0722a23")
 		(property "Reference" "R21"
-			(at 232.41 231.648 90)
+			(at 236.22 230.378 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -28704,7 +28818,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 232.41 233.426 90)
+			(at 236.22 232.156 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -28714,7 +28828,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 232.41 235.458 90)
+			(at 236.22 234.188 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28725,7 +28839,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 232.41 233.68 0)
+			(at 236.22 232.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28736,7 +28850,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 232.41 233.68 0)
+			(at 236.22 232.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28996,7 +29110,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 106.68 176.53 90)
+		(at 104.14 172.72 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -29006,7 +29120,7 @@
 		(dnp no)
 		(uuid "fbe6ca0d-ac5c-44fd-ae80-bdc08e49163d")
 		(property "Reference" "R29"
-			(at 106.68 174.498 90)
+			(at 106.172 172.72 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -29016,7 +29130,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 106.68 176.276 90)
+			(at 104.394 172.72 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -29026,7 +29140,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 106.68 178.308 90)
+			(at 102.362 172.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29037,7 +29151,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 176.53 0)
+			(at 104.14 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29048,7 +29162,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 106.68 176.53 0)
+			(at 104.14 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29152,7 +29266,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 232.41 245.11 90)
+		(at 229.87 243.84 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -29162,7 +29276,7 @@
 		(dnp no)
 		(uuid "fe503ae2-ebc7-42e3-9dee-03c4c95bd457")
 		(property "Reference" "R22"
-			(at 232.41 243.078 90)
+			(at 229.87 241.808 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -29172,7 +29286,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 232.41 244.856 90)
+			(at 229.87 243.586 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -29182,7 +29296,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 232.41 246.888 90)
+			(at 229.87 245.618 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29193,7 +29307,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 232.41 245.11 0)
+			(at 229.87 243.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29204,7 +29318,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 232.41 245.11 0)
+			(at 229.87 243.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
