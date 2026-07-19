@@ -10,7 +10,7 @@ A GPS Microcontroller for RTK GPS applications
 ## Schematic
 ![Schematic](schematic.png)
 
-## Download the ./latestProduction folder to begin fabricating through JLCPCB. 
+### Download the ./latestProduction folder to begin fabricating through JLCPCB. 
 
 ## Introduction
 PiSat is a complete microcontroller with an embbedded GPS chip all in the footprint of a Raspbbery Pi. It uses an RP2350 for parallel computing + an esp32 for wifi connectivity. In addition, it uses the PNT-SG3FS-TR GPS chip with an SMA connector to attach an external GPS antenna. It also can run completely on battery power for an estimated 12 hours (based on the suggested battery) at full load.
