@@ -23,6 +23,9 @@ namespace Gnss {
 
     bool poll();
 
+    void setRawDebug(bool on);   // echo raw NMEA bytes to USB Serial
+    bool rawDebug();
+
     const GnssFix& fix();
     uint32_t ppsCount();
     uint32_t lastPpsMs();

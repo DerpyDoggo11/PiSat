@@ -9,6 +9,7 @@ static volatile uint32_t s_ppsMs    = 0;
 
 static char    s_line[100];
 static uint8_t s_len = 0;
+static bool    s_rawDebug = false;
 
 static void ppsIsr() {
     s_ppsCount++;
@@ -120,6 +121,7 @@ bool Gnss::poll() {
     bool completed = false;
     while (Serial2.available()) {
         char c = (char)Serial2.read();
+        if (s_rawDebug) Serial.write(c);
 
         if (c == '$') { s_len = 0; s_line[s_len++] = c; continue; }
         if (s_len == 0) continue;
@@ -147,6 +149,9 @@ uint32_t Gnss::lastPpsMs() { return s_ppsMs; }
 bool Gnss::hasFix() {
     return s_fix.valid && (millis() - s_fix.lastFixMs) < 3000;
 }
+
+void Gnss::setRawDebug(bool on) { s_rawDebug = on; }
+bool Gnss::rawDebug() { return s_rawDebug; }
 
 void Gnss::sendCommand(const char* body) {
     uint8_t sum = 0;

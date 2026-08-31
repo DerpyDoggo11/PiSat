@@ -1,8 +1,18 @@
-#include "esp_link.h"
+#include "esplink.h"
 #include "esc.h"
 #include "hmi.h"
+#include <tusb.h>
 
 namespace EspLink {
+
+// This core's SerialUSB has no baud() getter; read the host-set CDC line
+// coding directly from TinyUSB so the ESP32 UART can mirror the host baud
+// (needed for esptool to flash the ESP32 through this bridge at high speed).
+static uint32_t hostBaudRate() {
+    cdc_line_coding_t lc;
+    tud_cdc_get_line_coding(&lc);
+    return lc.bit_rate;
+}
 
 void begin() {
     pinMode(PIN_ESP_EN, OUTPUT);
@@ -46,7 +56,7 @@ void hold() { digitalWrite(PIN_ESP_EN, LOW); }
     bool lastDtr = false, lastRts = false;
 
     for (;;) {
-        uint32_t hostBaud = Serial.baud();
+        uint32_t hostBaud = hostBaudRate();
         if (hostBaud >= 1200 && hostBaud != baud) {
             baud = hostBaud;
             Serial1.flush();

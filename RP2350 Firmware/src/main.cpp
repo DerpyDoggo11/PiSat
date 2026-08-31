@@ -4,7 +4,7 @@
 #include "gnss.h"
 #include "esc.h"
 #include "hmi.h"
-#include "esp_link.h"
+#include "esplink.h"
 
 #if defined(ESP_PASSTHROUGH_ONLY)
 
@@ -48,7 +48,7 @@ void setup() {
 static void handleCommand(char* cmd) {
     if (!strcmp(cmd, "help")) {
         Serial.println("arm | disarm | t <0-3> <0.0-1.0> | tall <0.0-1.0> |");
-        Serial.println("gps | aux | stat | gnss_reset | ant on|off |");
+        Serial.println("gps | aux | stat | gnss_reset | nmea | ant on|off |");
         Serial.println("esp_reset | esp_boot | esp_bridge");
     }
     else if (!strcmp(cmd, "arm")) {
@@ -95,6 +95,11 @@ static void handleCommand(char* cmd) {
         Serial.printf("vbat %.2f V  usb %d  armed %d  pps %lu  fix %d\n", g_vbat, (int)Power::usbPresent(), (int)g_armed, (unsigned long)Gnss::ppsCount(), (int)Gnss::hasFix());
     }
     else if (!strcmp(cmd, "gnss_reset")) { Gnss::reset(); Serial.println("gnss reset"); }
+    else if (!strcmp(cmd, "nmea")) {
+        bool on = !Gnss::rawDebug();
+        Gnss::setRawDebug(on);
+        Serial.printf("raw NMEA echo %s\n", on ? "ON (type 'nmea' again to stop)" : "OFF");
+    }
     else if (!strcmp(cmd, "ant on")) { Gnss::antennaPower(true);  Serial.println("ant on"); }
     else if (!strcmp(cmd, "ant off")) { Gnss::antennaPower(false); Serial.println("ant off"); }
     else if (!strcmp(cmd, "esp_reset")) { EspLink::reset(); Serial.println("esp reset"); }
