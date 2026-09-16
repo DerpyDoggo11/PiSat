@@ -1,0 +1,520 @@
+================================================================================
+ PiSat  --  Two-unit RTK GPS over WiFi  --  FULL SETUP & WIRING GUIDE
+================================================================================
+ One PiSat is the BASE (fixed, known spot). One PiSat is the ROVER (the thing
+ you track / drive). The base computes GPS correction data (RTCM3) and sends it
+ to the rover over WiFi. The rover applies the corrections to get a much more
+ accurate ("RTK") position, follows a GPS waypoint path, and streams telemetry
+ to a Processing sketch on your laptop.
+
+ Everything in this guide matches the firmware in this repo. Both external
+ microcontrollers are ESP32-C3 Super Minis:
+   RP2350 Firmware/        -> both PiSats (rover = env "gnss", base = env "base")
+   ESP32 Firmware/         -> the rover brain, ESP32-C3 Super Mini (env "c3_rover")
+   ESP32-C3 Base Firmware/ -> the base WiFi relay, ESP32-C3 Super Mini (env "c3_base")
+   Processing/PiSatRTK/    -> the laptop visualiser
+
+--------------------------------------------------------------------------------
+ CONTENTS
+--------------------------------------------------------------------------------
+   0. What you need
+   1. How RTK works here (and an honest accuracy note)
+   2. System / data-flow diagram
+   3. PiSat board pinout reference (from schematic.png + wiring.png + pins.h)
+   4. Wiring A: ROVER  PiSat <-> C3 bridge, and PiSat <-> two ZS-X111H motors
+   5. Wiring B: BASE   PiSat  <->  ESP32-C3 Super Mini
+   6. Installing the toolchain (PlatformIO)
+   7. Flashing all four firmwares
+   8. Configuring it (WiFi, path, base survey-in, tuning)
+   9. Bring-up / operating sequence
+  10. Running the Processing telemetry visualiser
+  11. Telemetry & correction protocol reference
+  12. Troubleshooting
+  13. The GNSS-module RTK caveat (READ THIS)
+
+================================================================================
+ 0. WHAT YOU NEED
+================================================================================
+  - 2x assembled PiSat boards, each with a GPS antenna on the SMA connector.
+    NOTE: the PiSat's ONBOARD ESP32-C3 is NOT populated on these boards, and it
+    is not needed. All WiFi runs on the two EXTERNAL ESP32-C3 super minis (which
+    have their own PCB antennas). The PiSat's 2.4 GHz WiFi antenna connector is
+    therefore unused -- you don't need to fit it. Nothing is ever flashed
+    "through" the PiSat; each external C3 and each PiSat RP2350 is flashed over
+    its own USB port.
+  - 2x ESP32-C3 Super Mini   (one = ROVER brain, one = BASE relay)
+  - 2x ZS-X111H (a.k.a. ZS-X11H) brushless motor controllers + 2 BLDC motors +
+    a motor battery (6-60 V per the driver). Optional for bench testing -- the
+    whole GPS/RTK/telemetry chain works with no motors connected.
+  - Dupont wires, common ground between each PiSat and its ESP32.
+  - A laptop with Processing 4.x installed, with WiFi.
+  - USB cables to flash each board.
+
+  Logic levels: RP2350, ESP32 and ESP32-C3 GPIO are all 3.3 V. You can wire them
+  directly -- no level shifter needed.
+
+================================================================================
+ 1. HOW RTK WORKS HERE
+================================================================================
+  Normal GPS is accurate to a few metres. RTK (Real-Time Kinematic) puts a
+  second receiver (the BASE) at a fixed point. Because the base is not moving,
+  it can measure the tiny per-satellite errors (atmosphere, clocks, orbits) that
+  a nearby rover sees too. It packages those errors as standard RTCM3 correction
+  messages. The rover subtracts them and can resolve its position far more
+  precisely.
+
+  In this project the RTCM3 corrections travel BASE -> WiFi -> ROVER:
+    - The base PiSat's GNSS is put in "base" mode and emits RTCM3.
+    - The base's ESP32-C3 relays that stream over WiFi to the rover.
+    - The rover's ESP32-C3 (a transparent WiFi<->UART bridge) pushes it into the
+      rover PiSat's RP2350, which feeds it to the GNSS.
+    - The rover GNSS outputs its improved fix; the fix "quality" field tells you
+      what you got: 1 = plain GPS, 2 = DGPS, 5 = RTK float, 4 = RTK fixed.
+
+  WHO DOES WHAT ON THE ROVER: the PiSat RP2350 is the brain -- it parses the
+  GNSS, applies the RTK corrections, follows the waypoint path, and DRIVES the
+  two ZS-X111H motor controllers (which are wired to the PiSat's own breakout
+  GPIO). The rover's ESP32-C3 only carries WiFi: RTCM in, telemetry out.
+
+  >> Accuracy note: the PiSat GNSS is a Lantronix PNT-SG3FS (ST Teseo III),
+     a SINGLE-FREQUENCY (L1) module. It genuinely accepts RTCM corrections
+     (DGPS per RTCM 10402.3) and can output carrier-phase measurements, so you
+     WILL get a large accuracy improvement (typically sub-metre / DGPS, and L1
+     RTK under good sky view). But it is not a dual-band ZED-F9P: expect longer
+     time-to-fix and less robust centimetre "RTK FIXED" than dual-band gear.
+     See section 13 for how to confirm/enable the exact receiver mode.
+
+================================================================================
+ 2. SYSTEM / DATA-FLOW DIAGRAM
+================================================================================
+
+   BASE SIDE (fixed tripod)                 ROVER SIDE (the robot)
+   ------------------------                 ----------------------
+   [GPS antenna]                            [GPS antenna]
+        |                                        |
+   +----------+                     +----------+  GNSS UART (both ways)
+   | PiSat    | GNSS UART           | PiSat    |  Teseo III
+   | (BASE)   | Teseo III           | (ROVER)  |<--- RTCM3 in / GGA RTK out
+   | RP2350   |---> RTCM3 framed    | RP2350   |  BRAIN: GNSS+RTK+pathfinding
+   +----------+                     +----+-----+---------+-------------------+
+        | GP0(TX)                GP0(TX) |    | GP1(RX)  | J5/J6 breakout:
+        v                     telemetry  |    | RTCM in  | 2x PWM/DIR/BRAKE+M
+   +--------------+           +----------+    +--------+ v  ("ESP32" header UART)
+   | ESP32-C3     | WiFi STA  | ESP32-C3 SM (WiFi BRIDGE)| +------------------+
+   | Super Mini   |==========>| SoftAP "PiSat-RTK"       | | 2x ZS-X111H BLDC |
+   | (relay)      | TCP :2101 | :2101 RTCM in (->RP2350) | |  -> 2 wheels     |
+   +--------------+  (RTCM)   | :8888 telemetry (<-RP2350)| +------------------+
+                              +-------------+------------+
+                                    ^       | TCP :8888 telemetry
+                       WiFi (join   |       v
+                       PiSat-RTK)  +-----------------+
+                                   | Laptop / Processing
+                                   +-----------------+
+
+   The ROVER PiSat (RP2350) is the brain: it applies the RTK corrections,
+   follows the path, and drives the two ZS-X111H controllers on its own
+   breakout GPIO. The rover's ESP32-C3 is only the access point + a transparent
+   WiFi<->UART bridge: RTCM in to the RP2350, telemetry out to Processing.
+
+================================================================================
+ 3. PiSat BOARD PINOUT REFERENCE
+================================================================================
+ (Source: schematic.png, wiring.png, and RP2350 Firmware/src/pins.h. The RP2350
+  is the hub: it owns the GNSS, the onboard ESP32-C3, and all breakout headers.)
+
+ 3.1  RP2350  <->  onboard GNSS (Teseo III / PNT-SG3FS)   -- already routed on PCB
+      RP2350 GP4  = UART TX  -> GNSS UART_RX
+      RP2350 GP5  = UART RX  <- GNSS UART_TX     (Serial2 @ 9600 baud default)
+      RP2350 GP6  = GNSS NRESET
+      RP2350 GP7  = GNSS WAKEUP
+      RP2350 GP8  = GNSS PPS (1 pulse/sec, rising-edge IRQ)
+      RP2350 GP9  = GNSS ANTOFF (antenna power / LNA enable, active behaviour
+                    in firmware: LOW = antenna on)
+      The GPS RF path: SMA connector -> RF_IN -> module. Put the GPS antenna
+      with clear sky view; keep it away from the WiFi antenna.
+
+ 3.2  RP2350  <->  onboard "ESP32" header  -- the C3 footprint is NOT POPULATED,
+      so this hardware UART (Serial1) is REUSED as the external-C3 link:
+      RP2350 GP0 = TX (-> external C3 RX)   RP2350 GP2 = (was C3 EN) unused
+      RP2350 GP1 = RX (<- external C3 TX)   RP2350 GP3 = (was C3 BOOT) unused
+      This is the firmware default (PISAT_LINK_HW_UART = 1). It is the same
+      6-pin "ESP32" header used for power/GND (sec. 3.5).
+
+ 3.3  Status / HMI
+      RP2350 GP10 = LED A (status)   active-LOW
+      RP2350 GP11 = LED B (status)   active-LOW
+      RP2350 GP25 = Buzzer
+
+ 3.4  Breakout headers (where you attach the external ESP32-C3 and the motors)
+      J4  (Conn_01x03, "GPIO 27/28/29"):  GP27, GP28, GP29  -- ADC-capable, spare
+      J5  (Conn_01x05, "GPIO 20-24"):      GP20, GP21, GP22, GP23, GP24
+           ^ ROVER: RIGHT-wheel ZS-X111H signals (GP24 spare):
+               GP20 = RIGHT PWM(P)   GP21 = RIGHT SPEED(M fb)   GP22 = RIGHT BRAKE
+               GP23 = RIGHT DIR(ZF)  GP24 = spare
+      J6  (Conn_01x05):                    GP12, GP13, GP14, GP15, GP19
+           ^ ROVER: LEFT-wheel ZS-X111H signals (GP14 spare). GP12/GP13 are free
+             because the C3 link is on the "ESP32" header (GP0/GP1):
+               GP12 = LEFT ROTATION(ZF)   GP13 = LEFT BRAKE   GP14 = spare
+               GP15 = LEFT PWM(P)         GP19 = LEFT SPEED(M fb)
+           NOTE: confirm which physical pin is GP12 vs GP13 on your silkscreen /
+           the KiCad netlist. The firmware (pins.h: PIN_J6[5]={12,13,14,15,19})
+           treats them as J6 positions 1..5.
+
+ 3.5  Debug / power / link pads
+      "RP2350" header: 3V3, GND, CLK(SWCLK), DIO(SWDIO), RUN
+      "ESP32"  header: RX, TX, EN, BOOT, 3V3, GND
+         ^ This is now the LINK header to the external C3. Its two data pins are
+           RP2350 GP0 (TX, drives the C3 RX) and GP1 (RX, reads the C3 TX), plus
+           3V3 + GND to power/ground the C3. The silk "RX"/"TX" are named for the
+           absent onboard C3, so don't take them at face value -- if data doesn't
+           flow, swap the two signal wires. EN/BOOT are unused.
+
+ 3.6  Power
+      RP2350 GP26 = VBAT ADC (2:1 divider, 3.3 V ref) -> battery voltage
+      18650 cell -> onboard charger (USB-C) + 3.3 V regulator. ~12 h runtime.
+
+================================================================================
+ 4. WIRING A:  ROVER  --  PiSat <-> C3 bridge, and PiSat <-> two ZS-X111H
+================================================================================
+ The rover PiSat (RP2350) is the brain and drives the motors from its OWN
+ breakout GPIO. The ESP32-C3 Super Mini is only a WiFi bridge. So there are two
+ wiring groups: the C3<->PiSat link, and the PiSat<->motors.
+
+ 4.1  PiSat rover  <->  C3 Super Mini  (UART link, common GND):
+   Use the PiSat's onboard "ESP32" header -- it is the RP2350's real hardware
+   UART (Serial1), free because the onboard C3 is not populated. (This is the
+   firmware default; it also frees J6 GP12/GP13.)
+   PiSat (ROVER) "ESP32" header  ESP32-C3 Super Mini    meaning
+   ----------------------------  -------------------    -------
+   GP0  (TX, header)  ---->  GPIO 20 (RX pad)           telemetry text out
+   GP1  (RX, header)  <----  GPIO 21 (TX pad)           RTCM3 corrections in
+   3V3  (header)      ---->  3V3 pin (power the C3)      optional
+   GND  (header)      -----  GND                         common ground
+   - The header's EN/BOOT pins are unused -- leave them open.
+   - Electrically: GP0 is the RP2350 TX (drives the C3 RX); GP1 is the RP2350 RX
+     (reads the C3 TX). If telemetry doesn't flow, swap the two data wires (a
+     UART TX/RX swap is harmless to try).
+   - Link baud 115200 (both sides set).
+   - Prefer the J6 soft-UART on GP12(TX)/GP13(RX) instead? Rebuild the rover with
+     -DPISAT_LINK_HW_UART=0 and wire those pins as the previous revision did.
+
+ 4.2  PiSat rover breakout  <->  two ZS-X111H controllers:
+   The motors connect ONLY to the PiSat. Four wires per wheel: P (PWM speed, an
+   output), ZF (rotation/direction, output), BRAKE (output), and M (speed
+   feedback pulse, an INPUT the PiSat counts). Because the C3 link now uses the
+   "ESP32" header, GP12/GP13 are free for motors.
+
+   Wheel  Signal              PiSat GPIO      ZS-X111H terminal
+   -----  ------              ----------      -----------------
+   RIGHT  pwm                 GP20 (J5)  ->   P     (PWM speed input)   [driver #1]
+   RIGHT  speed feedback      GP21 (J5)  <-   M     (FG / pulse output) [driver #1]
+   RIGHT  brake               GP22 (J5)  ->   BRAKE                     [driver #1]
+   RIGHT  rotation (dir)      GP23 (J5)  ->   ZF    (direction)         [driver #1]
+   LEFT   pwm                 GP15 (J6)  ->   P     (PWM speed input)   [driver #2]
+   LEFT   speed feedback      GP19 (J6)  <-   M     (FG / pulse output) [driver #2]
+   LEFT   brake               GP13 (J6)  ->   BRAKE                     [driver #2]
+   LEFT   rotation (dir)      GP12 (J6)  ->   ZF    (direction)         [driver #2]
+   Signal ground (both)       GND (pad)  ->   G     (each driver's P/G header)
+
+   >> LEFT brake on GP13, LEFT rotation on GP12.
+      NOTE: these LEFT pins only work with the default HW-UART link. If you
+      rebuild with -DPISAT_LINK_HW_UART=0, GP12/GP13 revert to the link and the
+      firmware refuses to compile until you move LEFT brake/rotation.
+
+   Driver-to-motor (NOT through the PiSat):
+     B+ / B-      -> motor battery (6-60 V). Do NOT power the PiSat from B+.
+     MA / MB / MC -> motor phase wires
+     H            -> motor hall-sensor connector (sensored motors)
+
+   Motor-supply ground and the PiSat signal ground MUST be tied together
+   (common GND) so the PWM/DIR/BRAKE levels are referenced correctly.
+
+   Speed-feedback (M) caveat: the firmware enables an internal pull-up and counts
+   falling edges, which suits an open-collector M output. If your ZS-X111H drives
+   M as a push-pull 5 V signal, drop it to 3.3 V (divider or level shifter) before
+   GP21/GP19. It is optional -- unwired, wheel-speed just reads 0 Hz.
+
+ 4.3  IMPORTANT ZS-X111H setup (do this or the P input is ignored):
+   - PWM MODE: these boards ship set up for their onboard potentiometer. To take
+     an external PWM on P/G you must enable the board's "short interface" (the
+     solder short / jumper next to the P/G header) AND turn the onboard speed
+     potentiometer to MINIMUM. Then P/G accepts PWM: amplitude 2.5-5 V,
+     frequency 50 Hz-20 kHz. (The firmware's analogWrite PWM ~1 kHz is in range.)
+   - DIRECTION (ZF) and BRAKE are level inputs; BRAKE engages on a HIGH (~5 V).
+   - 3.3 V LOGIC CAVEAT: the PiSat RP2350 drives 3.3 V. PWM (min 2.5 V) works
+     fine. DIR and BRAKE expect ~5 V high -- 3.3 V USUALLY triggers them, but if
+     a wheel won't change direction or brake, add a simple NPN/MOSFET level
+     shifter (or a logic-level converter) on ZF/BRAKE. If a wheel spins the WRONG
+     way, just flip DIR_R_FORWARD / DIR_L_FORWARD in RP2350 Firmware/src/main.cpp
+     -- no rewiring.
+   - The M (speed-feedback / FG pulse) output is optional and NOT used by the
+     control loop; leave it unconnected.
+
+   Power the C3 from its own USB while bench-testing, or from the PiSat "ESP32"
+   header 3V3/GND pads on the robot -- always keeping a common ground. The motor
+   drivers run from their own battery (B+/B-), never from the PiSat rail.
+
+================================================================================
+ 5. WIRING B:  BASE  PiSat  <->  ESP32-C3 Super Mini   (WiFi relay)
+================================================================================
+ The base PiSat runs the RP2350 "base" firmware: it configures its GNSS for
+ RTCM3 output and streams the framed RTCM3 out on the onboard "ESP32" header's
+ TX (GP0). The C3 Super Mini reads it and relays it over WiFi. One-way (base->C3).
+
+   PiSat (BASE) "ESP32" header   ESP32-C3 Super Mini           meaning
+   ---------------------------   -------------------           -------
+   GP0  (TX, header)     ---->  GPIO 4 (RX)                  RTCM3 stream in
+   3V3  (header)         ---->  3V3 pin (power the C3)       optional
+   GND  (header)         -----  GND                          common ground
+
+   (No return wire needed. GPIO 5 on the C3 is an unused spare. Build the base
+    with -DPISAT_LINK_HW_UART=0 to stream on J6 GP12 instead.)
+
+   Power the C3 from its own USB, or from the base PiSat's 3V3/GND pads. The base
+   PiSat's onboard C3 is not populated; the RTK WiFi is entirely this external
+   Super Mini's own antenna -- keep it out in the open, away from metal.
+
+   Put the base's GPS antenna somewhere fixed with a wide-open view of the sky
+   and DON'T move it once it has surveyed its position.
+
+================================================================================
+ 6. INSTALLING THE TOOLCHAIN (PlatformIO)
+================================================================================
+  1. Install VS Code, then the "PlatformIO IDE" extension. (Or use the CLI:
+     `pip install platformio`.)
+  2. First build will auto-download the toolchains. The RP2350 uses the
+     earlephilhower arduino-pico core (already pinned in its platformio.ini);
+     the ESP32s use the espressif32 platform.
+
+  In the commands below, `pio` is the PlatformIO CLI. In VS Code you can instead
+  pick the environment in the status bar and hit Build/Upload.
+
+================================================================================
+ 7. FLASHING ALL FOUR FIRMWARES
+================================================================================
+  Flash each board over its own USB. Do them in this order.
+
+  (a) ROVER PiSat -- RP2350 rover firmware:
+        cd "RP2350 Firmware"
+        pio run -e gnss -t upload
+      Hold BOOTSEL if needed for the first flash (RP2350 mass-storage mode).
+
+  (b) BASE PiSat -- RP2350 base firmware:
+        cd "RP2350 Firmware"
+        pio run -e base -t upload
+      (Same code base, -DPISAT_BASE selected by the "base" env.)
+
+  (c) ROVER ESP32-C3 Super Mini -- the WiFi bridge:
+        cd "ESP32 Firmware"
+        pio run -e c3_rover -t upload
+
+  (d) BASE ESP32-C3 Super Mini -- the WiFi relay:
+        cd "ESP32-C3 Base Firmware"
+        pio run -e c3_base -t upload
+
+  (If a C3 super mini won't enter download mode: hold BOOT, tap RST, release BOOT,
+   then upload.)
+
+  All four are flashed over their OWN USB ports -- nothing goes "through" the
+  PiSat. The onboard ESP32-C3 is not populated, so the RP2350 firmware skips its
+  onboard-C3 UART bridge (PISAT_ONBOARD_ESP defaults to 0 in main.cpp; the esp_*
+  console commands are disabled). If you ever do solder the onboard C3, rebuild
+  the rover with -DPISAT_ONBOARD_ESP=1 to re-enable it.
+
+================================================================================
+ 8. CONFIGURING IT
+================================================================================
+ 8.1  WiFi network (must match on rover C3 bridge and base C3):
+        ESP32 Firmware/src/main.cpp           -> AP_SSID / AP_PASS
+        ESP32-C3 Base Firmware/src/main.cpp   -> ROVER_SSID / ROVER_PASS
+      Defaults: SSID "PiSat-RTK", password "pisat-rtk-1234". The rover C3 is the
+      access point at 192.168.4.1. The base C3 and your laptop both join it.
+
+ 8.2  The rover's path -- now on the PiSat (RP2350 Firmware/src/main.cpp, in the
+      ROVER branch, near the top):
+        WAYPOINTS[] : list your field's GPS points {lat, lon}, in drive order
+                      (at least 2). Uncomment and replace the placeholders.
+        BOUNDARY[]  : optional safety polygon; if the rover leaves it, it stops.
+                      Leave < 3 points to disable.
+      Coordinates are plain decimal degrees, e.g. { 40.0011234, -75.0022345 }.
+      Tip: stand at each corner with the rover, read the "gps" value on the
+      RP2350 USB console, write it down. Rebuild/flash the rover (env "gnss").
+
+ 8.3  Drive tuning (RP2350 Firmware/src/main.cpp, ROVER branch):
+        MAX_PWM, STRAIGHT_DEG, PIVOT_DEG, TURN_FACTOR, LOOKAHEAD_FRAC,
+        WAYPOINT_RADIUS_M, MIN_SPEED_FOR_COURSE. Direction/brake polarity:
+        DIR_R_FORWARD, DIR_L_FORWARD, BRAKE_ON.
+      NOTE: motor output starts conservative (MAX_PWM = 40 / 255). Raise it once
+      you trust the steering. Type "hold" on the RP2350 console to brake/release
+      the motors while bench-testing. With no motors wired, it's harmless.
+
+ 8.4  Base survey-in (RP2350 Firmware/src/gnss.cpp -> Gnss::configureBase()):
+        The base does a 60 s / 2.0 m "survey-in" to fix its own coordinates,
+        then emits RTCM3. Change the survey time/accuracy there if you want a
+        tighter base. See section 13 about the exact ST commands.
+
+================================================================================
+ 9. BRING-UP / OPERATING SEQUENCE
+================================================================================
+  1. Set up the BASE first, outdoors, antenna fixed and sky-open. Power the base
+     PiSat + its C3. The base PiSat LED-A blinks until it is emitting RTCM
+     frames, then goes solid. (USB-serial "stat" prints "rtcm frames out".)
+  2. Power the ROVER PiSat + its C3 bridge. The C3 brings up the "PiSat-RTK"
+     SoftAP (its USB-serial prints the AP IP and "RTCM server / telemetry
+     server"). The PiSat RP2350 USB-serial prints "=== PiSat RTK ROVER ===".
+  3. The base C3 auto-joins "PiSat-RTK" and connects to the rover C3's :2101.
+     The rover C3 serial prints "base station connected (RTCM)"; corrections now
+     flow through it into the PiSat RP2350 and on to the GNSS.
+  4. Give the rover GPS an open-sky view. Watch the fix quality climb (on the
+     RP2350 "gps"/"stat" console, or in Processing):
+     NONE -> GPS -> DGPS -> RTK float -> RTK fixed (best case for this module).
+  5. On your laptop, join "PiSat-RTK", then run the Processing sketch (sec. 10).
+  6. To actually drive: wire the motors, make sure WAYPOINTS[] is set, and power
+     the rover in the field. It only drives when it has a fix and a valid path;
+     it stops at the last waypoint or if it leaves the BOUNDARY.
+
+================================================================================
+ 10. RUNNING THE PROCESSING TELEMETRY VISUALISER
+================================================================================
+  1. Open Processing/PiSatRTK/PiSatRTK.pde in Processing 4.x.
+  2. Confirm ROVER_HOST = "192.168.4.1" and ROVER_PORT = 8888 at the top.
+  3. Join the "PiSat-RTK" WiFi on the laptop.
+  4. Press Run. The sketch:
+       - connects to the rover's telemetry server (auto-reconnects if dropped),
+       - draws the waypoint path, the optional boundary polygon, waypoint radii,
+       - draws the rover moving along the path with a heading line (its GPS
+         course) and a target-bearing line, plus a green breadcrumb trail,
+       - shows a live HUD: fix quality (colour-coded: green = RTK fixed), lat/lon
+         to 7 decimals, satellites, HDOP, speed, course, current segment, target
+         bearing, cross-track heading error, path status, RTCM correction age
+         (link health), and per-wheel PWM bars.
+     The view auto-fits to the path + rover; a scale bar shows metres.
+
+  No fix yet? The field stays empty until the rover reports its first valid fix
+  (that sets the local-frame origin). The HUD still shows "NO FIX" and sat count.
+
+================================================================================
+ 11. TELEMETRY & CORRECTION PROTOCOL REFERENCE
+================================================================================
+ 11.1  ROVER telemetry: RP2350 -> C3 bridge -> Processing. The RP2350 emits
+        newline-terminated ASCII on GP12; the C3 relays it verbatim to the
+        Processing TCP client on :8888.
+        M,<maxPwm>,<wpRadius>,<wpCount>,<boundaryCount>     (path header, every 2 s)
+        W,<i>,<lat>,<lon>                                   (each waypoint)
+        B,<i>,<lat>,<lon>                                   (each boundary vertex)
+        O,<lat>,<lon>                                       (local-frame origin)
+        T,<ms>,<fixQual>,<lat>,<lon>,<course>,<speed>,<sats>,<hdop>,<seg>,
+          <tgtBearing>,<hdgErr>,<done>,<rtcmAgeMs>,<pwmR>,<pwmL>,<spdHzR>,<spdHzL>  (10 Hz)
+        fixQual: 0 none, 1 GPS, 2 DGPS, 4 RTK fixed, 5 RTK float.
+        spdHzR/spdHzL = wheel-speed feedback pulse frequency (Hz).
+        (The header is resent every 2 s so a late-joining Processing client still
+        gets the path.)
+
+ 11.2  Corrections: Processing-side none. Base -> rover is framed RTCM3 (0xD3,
+        10-bit length header, payload, 3-byte CRC24Q); the base only forwards
+        complete frames. The rover C3 receives them on TCP :2101 and writes the
+        raw bytes to the RP2350 (GP13), which passes them into the GNSS UART.
+
+================================================================================
+ 12. TROUBLESHOOTING
+================================================================================
+  Rover C3 never says "base station connected":
+    - Base C3 and rover C3 SSID/password must match exactly.
+    - Rover C3 is the AP (192.168.4.1). Base C3 is STA. Check the base C3 USB
+      serial for "joined" then "rover link up".
+    - Keep both WiFi antennas in the open; 2.4 GHz hates metal enclosures.
+
+  Motors don't move / wrong direction:
+    - Do the ZS-X111H PWM-mode setup (sec. 4.3): short interface + pot to MIN.
+    - Type "hold" on the RP2350 console to release the safety hold if engaged.
+    - Wrong way? flip DIR_R_FORWARD / DIR_L_FORWARD (sec. 8.3). No fix or no path
+      = motors stay stopped by design.
+    - DIR/BRAKE not responding at 3.3 V? add a level shifter (sec. 4.3).
+
+  Fix quality never rises above "GPS":
+    - Corrections aren't reaching the GNSS. Check RTCM age in the HUD: if it says
+      "no corrections", the WiFi/UART chain is broken (see wiring sec. 4/5).
+    - The base needs a good sky view and must finish survey-in before it emits
+      useful RTCM. Give it a few minutes, don't move it.
+    - Confirm the base RP2350 "stat" shows rtcm frames increasing.
+    - See section 13: the exact receiver-mode commands may need adjusting.
+
+  Processing window is empty:
+    - Laptop must be on "PiSat-RTK". Try http nothing -- it's raw TCP.
+    - No origin until the first valid fix. Watch the HUD sat count.
+
+  GNSS debug commands (type them on the RP2350 USB serial, ROVER and BASE both):
+    gps  (or sats) -> friendly status: fix quality, satellites tracked, HDOP,
+                      1PPS count, and -- before a fix -- how close it is and what
+                      to check. Watch sats climb and HDOP fall as it converges.
+    stat           -> one-line summary (adds RTCM frames on the base).
+    nmea           -> toggle raw NMEA echo (see the actual $GxGGA/$GxRMC stream).
+    gnss_reset     -> restart + reconfigure the module.
+    ant on | ant off (rover) -> antenna bias power.
+
+  How long to get a fix?
+    Clear sky, good antenna: cold start ~30 s-2 min, warm ~20-30 s, hot a few s.
+    Indoors/near a window it may take many minutes or never fix. If after a few
+    minutes outdoors "gps" still shows 0 sats and "1pps 0", suspect the antenna
+    or its bias (below), not the software.
+
+  GNSS shows nothing / never tracks satellites:
+    - Default GNSS baud is 9600 (pins.h GNSS_BAUD). Use "nmea" to echo raw NMEA
+      and confirm the module is even talking.
+    - "ant on", check the SMA antenna, "gnss_reset" to restart the module.
+    - Bias-tee inductor NOT populated? That inductor feeds DC up the coax to
+      power an ACTIVE antenna's LNA. Without it:
+         * PASSIVE antenna (no LNA): still works -- you'll get a fix.
+         * ACTIVE antenna (most GPS antennas, incl. the BOM ones): the LNA is
+           unpowered -> little/no signal -> likely NO fix. Populate the inductor,
+           or use a passive antenna. Test: with the antenna on and "ant on",
+           measure DC on the SMA centre pin -- it should be ~3.3 V; 0 V means the
+           bias path (that inductor) is open. "1pps 0" in "gps" is the same clue.
+
+  RP2350 won't take new firmware:
+    - Enter BOOTSEL (mass storage) and drag the UF2, or let PlatformIO reset it.
+
+  Motors spin unexpectedly:
+    - The rover only drives with a valid fix AND >=2 waypoints. Clear WAYPOINTS[]
+      to keep it stationary while testing GPS/telemetry.
+
+================================================================================
+ 13. THE GNSS-MODULE RTK CAVEAT   (READ THIS)
+================================================================================
+  The PiSat GNSS is a Lantronix PNT-SG3FS = ST Teseo III, SINGLE-FREQUENCY (L1),
+  flash-based, multi-constellation (GPS/GLONASS/Galileo/BeiDou/QZSS). Confirmed
+  from the datasheet: it supports DGPS corrections per RTCM 10402.3 and can be
+  built/configured to output carrier-phase measurements for a host RTK algorithm.
+
+  What that means for THIS project:
+    - The transport in this firmware is correct and complete: base -> WiFi ->
+      rover -> GNSS, both directions, framed and checksummed.
+    - The exact commands that switch the Teseo III into "emit RTCM3 base output"
+      and "consume RTCM3 as a rover" are ST $PSTM proprietary NMEA commands. The
+      placeholders in gnss.cpp (Gnss::configureBase / configureRover) use the
+      $PSTMSETPAR / $PSTMSAVEPAR scheme, but the exact PARAMETER IDs and the
+      base-survey command name MUST be verified against YOUR module's:
+          "Teseo III / Teseo-LIV3 Software Command / Firmware Reference"
+      (ST doc; also see Lantronix's PNT-SG3FS material and ST's TESEO-SUITE PC
+      tool, which can configure the module and show you the exact commands).
+    - Once the receiver is genuinely in base/rover mode, everything else here
+      works unchanged. If your particular firmware build does not expose on-chip
+      RTK, you can still (a) get DGPS/sub-metre from RTCM, or (b) log raw
+      measurements from both units and post-process with RTKLIB.
+    - Realistic expectation for an L1 module: fast to sub-metre/DGPS; L1-only
+      RTK "float/fixed" is possible with open sky and a good base but is slower
+      and less robust than a dual-band (L1/L2) receiver like the u-blox ZED-F9P.
+
+  So: this repo gives you a working, honest end-to-end RTK pipeline over WiFi;
+  the one thing to nail down against ST's docs is the precise receiver-mode
+  command set for your exact module firmware.
+
+  Sources:
+    - Lantronix PNT-SG3FS datasheet (PDS-0021):
+      https://www.mouser.com/pdfDocs/PDS-0021b-PNT-SG3FS-Datasheet.pdf
+    - Lantronix PNT GNSS series: https://www.lantronix.com/products/pnt-gnss-series/
+    - ZS-X11H controller pinout/specs (Cirkit Designer):
+      https://docs.cirkitdesigner.com/component/4cf35777-c70f-44c9-9828-838f50915cea/zs-x11h-v2-350w-motor-controller
+    - ZS-X11H Arduino wiring reference:
+      https://github.com/aeoank/ZS-X11H-BLDC-motor-driver-arduino
+================================================================================

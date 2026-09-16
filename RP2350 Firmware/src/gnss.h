@@ -26,10 +26,40 @@ namespace Gnss {
     void setRawDebug(bool on);   // echo raw NMEA bytes to USB Serial
     bool rawDebug();
 
+    // Feed one already-read byte into the NMEA parser (for the BASE, which reads
+    // the UART itself to frame RTCM and can't also call poll()).
+    bool feedByte(uint8_t b);
+
+    // Print a human-friendly status to USB Serial: fix quality, satellite count,
+    // HDOP, 1PPS count, and -- before a fix -- how close it is / what to check.
+    void printStatus();
+
     const GnssFix& fix();
     uint32_t ppsCount();
     uint32_t lastPpsMs();
-    bool hasFix(); 
+    bool hasFix();
 
     void sendCommand(const char* body);
+
+    // --- RTK support -------------------------------------------------------
+    // Inject raw correction bytes (RTCM3) straight into the GNSS UART. Used on
+    // the ROVER to feed base-station corrections received over WiFi into the
+    // Teseo III so it can compute a differential / RTK solution.
+    void write(const uint8_t* data, size_t len);
+
+    // Non-blocking access to the raw GNSS UART stream, so the BASE role can
+    // frame RTCM3 messages coming out of the receiver without the NMEA parser
+    // in poll() eating the bytes first. Returns -1 when no byte is waiting.
+    int  readRaw();
+    int  availableRaw();
+
+    // Configure the receiver as an RTK BASE: put it into a mode where it emits
+    // RTCM3 corrections (and/or raw measurements) on its UART. These are ST
+    // Teseo III $PSTM proprietary commands -- confirm the exact parameter IDs
+    // against your module's "Teseo III Software Command Reference" before
+    // relying on them; the transport around them is correct regardless.
+    void configureBase();
+    // Configure the receiver as an RTK ROVER: make sure it will accept RTCM3
+    // input on the UART and report the differential/RTK fix quality in GGA.
+    void configureRover();
 }

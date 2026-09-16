@@ -117,29 +117,55 @@ void Gnss::wake() {
     digitalWrite(PIN_GNSS_WAKEUP, HIGH);
 }
 
+// Assemble/parse one incoming byte. Returns true when a valid sentence completes.
+static bool processByte(char c) {
+    if (s_rawDebug) Serial.write(c);
+
+    if (c == '$') { s_len = 0; s_line[s_len++] = c; return false; }
+    if (s_len == 0) return false;
+
+    if (c == '\r' || c == '\n') {
+        s_line[s_len] = '\0';
+        bool ok = (s_len > 6 && checksumOk(s_line));
+        if (ok) parseSentence(s_line);
+        s_len = 0;
+        return ok;
+    } else if (s_len < sizeof(s_line) - 1) {
+        s_line[s_len++] = c;
+    } else {
+        s_len = 0;
+    }
+    return false;
+}
+
 bool Gnss::poll() {
     bool completed = false;
-    while (Serial2.available()) {
-        char c = (char)Serial2.read();
-        if (s_rawDebug) Serial.write(c);
-
-        if (c == '$') { s_len = 0; s_line[s_len++] = c; continue; }
-        if (s_len == 0) continue;
-
-        if (c == '\r' || c == '\n') {
-            s_line[s_len] = '\0';
-            if (s_len > 6 && checksumOk(s_line)) {
-                parseSentence(s_line);
-                completed = true;
-            }
-            s_len = 0;
-        } else if (s_len < sizeof(s_line) - 1) {
-            s_line[s_len++] = c;
-        } else {
-            s_len = 0;                          
-        }
-    }
+    while (Serial2.available())
+        if (processByte((char)Serial2.read())) completed = true;
     return completed;
+}
+
+bool Gnss::feedByte(uint8_t b) { return processByte((char)b); }
+
+void Gnss::printStatus() {
+    const char* lbl = (s_fix.fixQuality == 4) ? "RTK-FIXED" :
+                      (s_fix.fixQuality == 5) ? "RTK-FLOAT" :
+                      (s_fix.fixQuality == 2) ? "DGPS" :
+                      (s_fix.fixQuality == 1) ? "GPS" : "NO FIX";
+    Serial.printf("GNSS %s | sats %u | hdop %.1f | 1pps %lu\n",
+                  lbl, s_fix.satellites, s_fix.hdop, (unsigned long)s_ppsCount);
+    if (hasFix()) {
+        Serial.printf("  pos %.7f, %.7f  alt %.1fm  %.1fm/s hdg %.0f  %02u:%02u:%02uZ\n",
+                      s_fix.latitude, s_fix.longitude, s_fix.altitude_m,
+                      s_fix.speed_mps, s_fix.course_deg,
+                      s_fix.hour, s_fix.minute, s_fix.second);
+    } else {
+        Serial.printf("  acquiring... tracking %u sats (need ~4 with hdop<5). "
+                      "Open sky helps; cold start ~30s-2min.\n", s_fix.satellites);
+        if (s_ppsCount == 0)
+            Serial.println("  no 1PPS yet -> antenna likely not receiving/powered "
+                           "(active antenna needs bias + 'ant on').");
+    }
 }
 
 const GnssFix& Gnss::fix() { return s_fix; }
@@ -157,4 +183,46 @@ void Gnss::sendCommand(const char* body) {
     uint8_t sum = 0;
     for (const char* p = body; *p; p++) sum ^= (uint8_t)*p;
     Serial2.printf("$%s*%02X\r\n", body, sum);
+}
+
+// --- RTK support -----------------------------------------------------------
+void Gnss::write(const uint8_t* data, size_t len) {
+    if (data && len) Serial2.write(data, len);
+}
+
+int Gnss::readRaw()      { return Serial2.available() ? Serial2.read() : -1; }
+int Gnss::availableRaw() { return Serial2.available(); }
+
+void Gnss::configureBase() {
+    // 1) Make sure the RTCM3 output subsystem is on and give it a base
+    //    position. Two ways depending on your survey workflow:
+    //      a) SURVEY-IN: let the receiver average its own position for N
+    //         seconds / to a target accuracy, then start emitting RTCM.
+    //      b) FIXED:     hand it a surveyed lat/lon/height you already know.
+    //
+    // The parameter IDs below follow the ST Teseo III "$PSTMSETPAR" scheme.
+    // VERIFY them against your Teseo III command manual -- treat these as the
+    // documented insertion points, not guaranteed opcodes.
+
+    // Enable the RTCM/differential-output message engine (PSTM config block).
+    sendCommand("PSTMSETPAR,1227,1");         // enable RTCM output engine
+    // Emit the core RTCM3 base messages: 1005 (station coords), 1074/1084/1094
+    // (GPS/GLO/GAL MSM4 observations), 1230 (GLONASS biases).
+    sendCommand("PSTMSETPAR,1228,0x1,1005");
+    sendCommand("PSTMSETPAR,1228,0x1,1074");
+    sendCommand("PSTMSETPAR,1228,0x1,1084");
+    sendCommand("PSTMSETPAR,1228,0x1,1094");
+    sendCommand("PSTMSETPAR,1228,0x1,1230");
+    // Start a 60 s / 2.0 m survey-in so the base fixes its own coordinates.
+    sendCommand("PSTMBASESURVEY,60,2.0");
+    // Persist to flash so it survives reset, then let it boot into base mode.
+    sendCommand("PSTMSAVEPAR");
+}
+
+void Gnss::configureRover() {
+    // Make sure the receiver treats UART input as RTCM3 corrections and
+    // reports differential/RTK quality in the GGA fix field (2 = DGPS,
+    // 4 = RTK fixed, 5 = RTK float). Again: $PSTM parameter IDs to VERIFY.
+    sendCommand("PSTMSETPAR,1227,2");         // input = RTCM3 corrections
+    sendCommand("PSTMSAVEPAR");
 }
