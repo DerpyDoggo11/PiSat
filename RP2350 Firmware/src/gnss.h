@@ -62,4 +62,10 @@ namespace Gnss {
     // Configure the receiver as an RTK ROVER: make sure it will accept RTCM3
     // input on the UART and report the differential/RTK fix quality in GGA.
     void configureRover();
+
+    // Enable/disable ST Teseo raw-measurement output (carrier phase +
+    // pseudorange), which a host RTK engine (RTKLIB on a Pi Zero 2 W) consumes.
+    // Uses $PSTMSETPAR,1228 (PSTMPVRAW) per ST UM2229 -- VERIFY against your
+    // module's firmware; it may require the measurement-engine (ME) build.
+    void rawMeasurements(bool on);
 }

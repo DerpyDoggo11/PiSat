@@ -89,7 +89,10 @@ void Gnss::begin() {
     pinMode(PIN_GNSS_ANTOFF, OUTPUT);
     digitalWrite(PIN_GNSS_ANTOFF, LOW); 
 
-    pinMode(PIN_GNSS_PPS, INPUT); 
+    // Pull-down so a tri-stated PPS pin (module hasn't fixed yet) doesn't count
+    // noise. Note: PPS is only a meaningful 1 Hz signal AFTER a fix -- before
+    // that the count is unreliable, so don't use it as an antenna-health check.
+    pinMode(PIN_GNSS_PPS, INPUT_PULLDOWN);
     attachInterrupt(digitalPinToInterrupt(PIN_GNSS_PPS), ppsIsr, RISING);
 
     Serial2.setTX(PIN_GNSS_TX);
@@ -160,11 +163,12 @@ void Gnss::printStatus() {
                       s_fix.speed_mps, s_fix.course_deg,
                       s_fix.hour, s_fix.minute, s_fix.second);
     } else {
-        Serial.printf("  acquiring... tracking %u sats (need ~4 with hdop<5). "
-                      "Open sky helps; cold start ~30s-2min.\n", s_fix.satellites);
-        if (s_ppsCount == 0)
-            Serial.println("  no 1PPS yet -> antenna likely not receiving/powered "
-                           "(active antenna needs bias + 'ant on').");
+        Serial.printf("  acquiring... tracking %u sats, hdop %.1f (need ~4 sats, hdop<5). "
+                      "Cold start ~30s-2min.\n", s_fix.satellites, s_fix.hdop);
+        if (s_fix.satellites == 0)
+            Serial.println("  0 sats -> test OUTDOORS with clear sky. Still 0 after a few "
+                           "min? RF/antenna issue: an active antenna needs DC bias up the "
+                           "coax (bias-tee) + 'ant on'. (1pps count is unreliable pre-fix.)");
     }
 }
 
@@ -225,4 +229,13 @@ void Gnss::configureRover() {
     // 4 = RTK fixed, 5 = RTK float). Again: $PSTM parameter IDs to VERIFY.
     sendCommand("PSTMSETPAR,1227,2");         // input = RTCM3 corrections
     sendCommand("PSTMSAVEPAR");
+}
+
+void Gnss::rawMeasurements(bool on) {
+    // Toggle the PSTMPVRAW raw-measurement message (param 1228, bit 0x4000) so a
+    // host RTK engine (RTKLIB) can compute carrier-phase RTK. Mode 1 = set bit,
+    // 2 = clear bit (per ST UM2229 -- confirm for your firmware). Resets to apply.
+    sendCommand(on ? "PSTMSETPAR,1228,0x4000,1" : "PSTMSETPAR,1228,0x4000,2");
+    sendCommand("PSTMSAVEPAR");
+    sendCommand("PSTMSRR");
 }
