@@ -45,3 +45,6 @@ Cost per unit: **$65.28**
 3. Screw in the wifi antenna onto the esp32
 4. Screw in the GPS antenna onto the SMA connector
 5. Insert battery into battery connector and turn on
+
+## Demonstration Video
+https://www.youtube.com/watch?v=5pDu0XT5UDQ
